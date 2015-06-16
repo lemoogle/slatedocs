@@ -6,6 +6,7 @@ language_tabs:
   - ruby
   - python
   - javascript
+  - java
 
 
 toc_footers:
@@ -16,6 +17,7 @@ includes:
   - auth
   - asyncsync
   - files
+  - libraries
   - search
 
 search: true

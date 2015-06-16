@@ -3,15 +3,23 @@
 > To authorize, use this code:
 
 ```ruby
-require 'IDOL OnDemand'
-
-api = IDOL OnDemand::APIClient.authorize!('meowmeowmeow')
+rubycode here
 ```
 
 ```python
-import IDOL OnDemand
+import requests
+myapikey="myapikey!"
+requests.get("http://idolondemand.com/api/1/{sync,async}/{apiname}/v1?param1=val1&param2=val2&apikey="+myapikey)
+```
 
-api = IDOL OnDemand.authorize('meowmeowmeow')
+```javascript
+var myapikey="myapikey!"
+
+#jquery
+
+$.get("http://idolondemand.com/api/1/{sync,async}/{apiname}/v1?param1=val1&param2=val2&apikey="+myapikey,function(body){
+
+})
 ```
 
 ```shell
