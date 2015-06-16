@@ -45,7 +45,6 @@ curl http://api.idolondemand.com/1/api/async/analyzesentiment/v1?text=I%20like%2
 ```
 
 ```shell
-#Calling the job API
 
 curl https://api.idolondemand.com/1/job/status/usw3p_3eb5f2a4-3950-4f67-ab58-6597e9fe17ca?apikey=myapikey
 ```
