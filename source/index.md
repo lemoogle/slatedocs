@@ -18,6 +18,7 @@ includes:
   - asyncsync
   - files
   - reference
+  - errors
   - libraries
   - search
 
