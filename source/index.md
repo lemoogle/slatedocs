@@ -17,6 +17,7 @@ includes:
   - auth
   - asyncsync
   - files
+  - reference
   - libraries
   - search
 
