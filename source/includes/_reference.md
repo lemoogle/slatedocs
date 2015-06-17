@@ -10,11 +10,11 @@
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/addagent/v1"
+
+
 
 data=
 {
@@ -25,15 +25,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/addagent/v1"
+
+url="http://api.idolondemand.com/1/api/sync/addagent/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/addagent/v1`
 
@@ -61,11 +71,11 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/addrole/v1"
+
+
 
 data=
 {
@@ -74,15 +84,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/addrole/v1"
+
+url="http://api.idolondemand.com/1/api/sync/addrole/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/addrole/v1`
 
@@ -108,11 +128,11 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/addstore/v1"
+
+
 
 data=
 {
@@ -120,15 +140,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/addstore/v1"
+
+url="http://api.idolondemand.com/1/api/sync/addstore/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/addstore/v1`
 
@@ -153,11 +183,11 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/addtotextindex/v1"
+
+
 
 data=
 {
@@ -165,20 +195,31 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/addtotextindex/v1"
+
+url="http://api.idolondemand.com/1/api/sync/addtotextindex/v1"
 #GET
 data["url"]="myurl"
 resp=requests.get(url,params=data)
 #POST
 data["url"]="myurl"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["url"]="myurl"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/addtotextindex/v1`
 
@@ -221,11 +262,11 @@ replace | On adding a document, remove all existing documents with the same refe
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/adduser/v1"
+
+
 
 data=
 {
@@ -235,15 +276,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/adduser/v1"
+
+url="http://api.idolondemand.com/1/api/sync/adduser/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/adduser/v1`
 
@@ -270,31 +321,42 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/analyzesentiment/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/analyzesentiment/v1"
+
+url="http://api.idolondemand.com/1/api/sync/analyzesentiment/v1"
 #GET
 data["text"]="mytext"
 resp=requests.get(url,params=data)
 #POST
 data["text"]="mytext"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["text"]="mytext"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/analyzesentiment/v1`
 
@@ -343,11 +405,11 @@ cze | Czech
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/assignrole/v1"
+
+
 
 data=
 {
@@ -357,15 +419,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/assignrole/v1"
+
+url="http://api.idolondemand.com/1/api/sync/assignrole/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/assignrole/v1`
 
@@ -392,11 +464,11 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/authenticate/v1"
+
+
 
 data=
 {
@@ -405,15 +477,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/authenticate/v1"
+
+url="http://api.idolondemand.com/1/api/sync/authenticate/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/authenticate/v1`
 
@@ -446,11 +528,11 @@ simple | Simple authentication
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/cancelconnectorschedule/v1"
+
+
 
 data=
 {
@@ -458,15 +540,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/cancelconnectorschedule/v1"
+
+url="http://api.idolondemand.com/1/api/sync/cancelconnectorschedule/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/cancelconnectorschedule/v1`
 
@@ -491,31 +583,42 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/categorizedocument/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/categorizedocument/v1"
+
+url="http://api.idolondemand.com/1/api/sync/categorizedocument/v1"
 #GET
 data["text"]="mytext"
 resp=requests.get(url,params=data)
 #POST
 data["text"]="mytext"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["text"]="mytext"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/categorizedocument/v1`
 
@@ -562,11 +665,11 @@ reference | Print reference fields.
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/classifydocument/v1"
+
+
 
 data=
 {
@@ -574,20 +677,31 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/classifydocument/v1"
+
+url="http://api.idolondemand.com/1/api/sync/classifydocument/v1"
 #GET
 data["url"]="myurl"
 resp=requests.get(url,params=data)
 #POST
 data["url"]="myurl"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["url"]="myurl"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/classifydocument/v1`
 
@@ -621,26 +735,36 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/connectorhistory/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/connectorhistory/v1"
+
+url="http://api.idolondemand.com/1/api/sync/connectorhistory/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/connectorhistory/v1`
 
@@ -673,11 +797,11 @@ statuses | array | The statuses that you want to return.
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/connectorstatus/v1"
+
+
 
 data=
 {
@@ -685,15 +809,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/connectorstatus/v1"
+
+url="http://api.idolondemand.com/1/api/sync/connectorstatus/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/connectorstatus/v1`
 
@@ -719,11 +853,11 @@ schedule_information | boolean | Set to true to return information about the sch
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/createclassificationobjects/v1"
+
+
 
 data=
 {
@@ -731,15 +865,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/createclassificationobjects/v1"
+
+url="http://api.idolondemand.com/1/api/sync/createclassificationobjects/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/createclassificationobjects/v1`
 
@@ -777,11 +921,11 @@ collection_sequence | Collection Sequence
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/createconnector/v1"
+
+
 
 data=
 {
@@ -792,15 +936,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/createconnector/v1"
+
+url="http://api.idolondemand.com/1/api/sync/createconnector/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/createconnector/v1`
 
@@ -838,11 +992,11 @@ filesystem_onsite | OnSite Filesystem Connector
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/createpolicyobjects/v1"
+
+
 
 data=
 {
@@ -852,15 +1006,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/createpolicyobjects/v1"
+
+url="http://api.idolondemand.com/1/api/sync/createpolicyobjects/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/createpolicyobjects/v1`
 
@@ -894,11 +1058,11 @@ policy_type | Policy Type
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/createqueryprofile/v1"
+
+
 
 data=
 {
@@ -907,15 +1071,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/createqueryprofile/v1"
+
+url="http://api.idolondemand.com/1/api/sync/createqueryprofile/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/createqueryprofile/v1`
 
@@ -941,11 +1115,11 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/createtextindex/v1"
+
+
 
 data=
 {
@@ -954,15 +1128,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/createtextindex/v1"
+
+url="http://api.idolondemand.com/1/api/sync/createtextindex/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/createtextindex/v1`
 
@@ -989,11 +1173,11 @@ description | string | A brief description of the index.
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/deleteagent/v1"
+
+
 
 data=
 {
@@ -1003,15 +1187,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/deleteagent/v1"
+
+url="http://api.idolondemand.com/1/api/sync/deleteagent/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/deleteagent/v1`
 
@@ -1038,11 +1232,11 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/deleteclassificationobjects/v1"
+
+
 
 data=
 {
@@ -1051,15 +1245,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/deleteclassificationobjects/v1"
+
+url="http://api.idolondemand.com/1/api/sync/deleteclassificationobjects/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/deleteclassificationobjects/v1`
 
@@ -1095,11 +1299,11 @@ collection_sequence | Collection Sequence
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/deleteconnector/v1"
+
+
 
 data=
 {
@@ -1107,15 +1311,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/deleteconnector/v1"
+
+url="http://api.idolondemand.com/1/api/sync/deleteconnector/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/deleteconnector/v1`
 
@@ -1140,11 +1354,11 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/deletefromtextindex/v1"
+
+
 
 data=
 {
@@ -1152,15 +1366,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/deletefromtextindex/v1"
+
+url="http://api.idolondemand.com/1/api/sync/deletefromtextindex/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/deletefromtextindex/v1`
 
@@ -1192,11 +1416,11 @@ delete_all_documents | boolean | Set to true to delete all documents from the te
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/deletepolicyobjects/v1"
+
+
 
 data=
 {
@@ -1205,15 +1429,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/deletepolicyobjects/v1"
+
+url="http://api.idolondemand.com/1/api/sync/deletepolicyobjects/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/deletepolicyobjects/v1`
 
@@ -1245,11 +1479,11 @@ policy_type | Policy Type
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/deletequeryprofile/v1"
+
+
 
 data=
 {
@@ -1257,15 +1491,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/deletequeryprofile/v1"
+
+url="http://api.idolondemand.com/1/api/sync/deletequeryprofile/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/deletequeryprofile/v1`
 
@@ -1290,11 +1534,11 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/deleterole/v1"
+
+
 
 data=
 {
@@ -1303,15 +1547,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/deleterole/v1"
+
+url="http://api.idolondemand.com/1/api/sync/deleterole/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/deleterole/v1`
 
@@ -1337,11 +1591,11 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/deletestore/v1"
+
+
 
 data=
 {
@@ -1349,15 +1603,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/deletestore/v1"
+
+url="http://api.idolondemand.com/1/api/sync/deletestore/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/deletestore/v1`
 
@@ -1382,11 +1646,11 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/deletetextindex/v1"
+
+
 
 data=
 {
@@ -1394,15 +1658,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/deletetextindex/v1"
+
+url="http://api.idolondemand.com/1/api/sync/deletetextindex/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/deletetextindex/v1`
 
@@ -1428,11 +1702,11 @@ confirm | string | The confirmation hash key returned after the first request.
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/deleteuser/v1"
+
+
 
 data=
 {
@@ -1441,15 +1715,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/deleteuser/v1"
+
+url="http://api.idolondemand.com/1/api/sync/deleteuser/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/deleteuser/v1`
 
@@ -1475,31 +1759,42 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/detectfaces/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/detectfaces/v1"
+
+url="http://api.idolondemand.com/1/api/sync/detectfaces/v1"
 #GET
 data["url"]="myurl"
 resp=requests.get(url,params=data)
 #POST
 data["url"]="myurl"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["url"]="myurl"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/detectfaces/v1`
 
@@ -1532,31 +1827,42 @@ additional | boolean | Whether to estimate the ages of the faces.
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/expandcontainer/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/expandcontainer/v1"
+
+url="http://api.idolondemand.com/1/api/sync/expandcontainer/v1"
 #GET
 data["url"]="myurl"
 resp=requests.get(url,params=data)
 #POST
 data["url"]="myurl"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["url"]="myurl"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/expandcontainer/v1`
 
@@ -1590,11 +1896,11 @@ password | array | Passwords to use to extract the files.
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/expandterms/v1"
+
+
 
 data=
 {
@@ -1602,20 +1908,31 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/expandterms/v1"
+
+url="http://api.idolondemand.com/1/api/sync/expandterms/v1"
 #GET
 data["text"]="mytext"
 resp=requests.get(url,params=data)
 #POST
 data["text"]="mytext"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["text"]="mytext"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/expandterms/v1`
 
@@ -1664,31 +1981,42 @@ stem | Same stem
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/extractconcepts/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/extractconcepts/v1"
+
+url="http://api.idolondemand.com/1/api/sync/extractconcepts/v1"
 #GET
 data["text"]="mytext"
 resp=requests.get(url,params=data)
 #POST
 data["text"]="mytext"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["text"]="mytext"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/extractconcepts/v1`
 
@@ -1733,11 +2061,11 @@ spa | Spanish
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/extractentities/v1"
+
+
 
 data=
 {
@@ -1745,20 +2073,31 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/extractentities/v1"
+
+url="http://api.idolondemand.com/1/api/sync/extractentities/v1"
 #GET
 data["text"]="mytext"
 resp=requests.get(url,params=data)
 #POST
 data["text"]="mytext"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["text"]="mytext"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/extractentities/v1`
 
@@ -1794,31 +2133,42 @@ unique_entities | boolean | Set to true to remove duplicate entity matches.
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/extracttext/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/extracttext/v1"
+
+url="http://api.idolondemand.com/1/api/sync/extracttext/v1"
 #GET
 data["url"]="myurl"
 resp=requests.get(url,params=data)
 #POST
 data["url"]="myurl"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["url"]="myurl"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/extracttext/v1`
 
@@ -1856,31 +2206,42 @@ reference_prefix | array | A string to add to the start of the reference of docu
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/findrelatedconcepts/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/findrelatedconcepts/v1"
+
+url="http://api.idolondemand.com/1/api/sync/findrelatedconcepts/v1"
 #GET
 data["text"]="mytext"
 resp=requests.get(url,params=data)
 #POST
 data["text"]="mytext"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["text"]="mytext"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/findrelatedconcepts/v1`
 
@@ -1920,31 +2281,42 @@ indexes | array | Type the name of one or more IDOL OnDemand text index to retur
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/findsimilar/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/findsimilar/v1"
+
+url="http://api.idolondemand.com/1/api/sync/findsimilar/v1"
 #GET
 data["text"]="mytext"
 resp=requests.get(url,params=data)
 #POST
 data["text"]="mytext"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["text"]="mytext"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/findsimilar/v1`
 
@@ -2028,26 +2400,36 @@ sentences | Sentences that contain query terms.
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/getcontent/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/getcontent/v1"
+
+url="http://api.idolondemand.com/1/api/sync/getcontent/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/getcontent/v1`
 
@@ -2095,11 +2477,11 @@ parametric | Parametric fields
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/getparametricvalues/v1"
+
+
 
 data=
 {
@@ -2107,17 +2489,28 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/getparametricvalues/v1"
+
+url="http://api.idolondemand.com/1/api/sync/getparametricvalues/v1"
 #GET
 data["text"]="mytext"
 resp=requests.get(url,params=data)
 #POST
 data["text"]="mytext"
 resp=requests.post(url,data=data)
+
+
+#Async
+data["text"]="mytext"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/getparametricvalues/v1`
 
@@ -2164,11 +2557,11 @@ reverse_alphabetical | Reverse alphabetical.
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/highlighttext/v1"
+
+
 
 data=
 {
@@ -2176,20 +2569,31 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/highlighttext/v1"
+
+url="http://api.idolondemand.com/1/api/sync/highlighttext/v1"
 #GET
 data["text"]="mytext"
 resp=requests.get(url,params=data)
 #POST
 data["text"]="mytext"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["text"]="mytext"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/highlighttext/v1`
 
@@ -2225,31 +2629,42 @@ end_tag | string | The closing HTML tag to use to highlight a link term. If omit
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/identifylanguage/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/identifylanguage/v1"
+
+url="http://api.idolondemand.com/1/api/sync/identifylanguage/v1"
 #GET
 data["text"]="mytext"
 resp=requests.get(url,params=data)
 #POST
 data["text"]="mytext"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["text"]="mytext"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/identifylanguage/v1`
 
@@ -2283,11 +2698,11 @@ additional_metadata | boolean | Set to true to get additional metadata informati
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/indexstatus/v1"
+
+
 
 data=
 {
@@ -2295,15 +2710,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/indexstatus/v1"
+
+url="http://api.idolondemand.com/1/api/sync/indexstatus/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/indexstatus/v1`
 
@@ -2328,11 +2753,11 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/listagents/v1"
+
+
 
 data=
 {
@@ -2341,15 +2766,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/listagents/v1"
+
+url="http://api.idolondemand.com/1/api/sync/listagents/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/listagents/v1`
 
@@ -2375,26 +2810,36 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/listindexes/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/listindexes/v1"
+
+url="http://api.idolondemand.com/1/api/sync/listindexes/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/listindexes/v1`
 
@@ -2420,26 +2865,36 @@ type | array | Match against particular worker sub-types.
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/listresources/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/listresources/v1"
+
+url="http://api.idolondemand.com/1/api/sync/listresources/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/listresources/v1`
 
@@ -2465,11 +2920,11 @@ type | array | Match against particular worker sub-types.
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/listroles/v1"
+
+
 
 data=
 {
@@ -2477,15 +2932,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/listroles/v1"
+
+url="http://api.idolondemand.com/1/api/sync/listroles/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/listroles/v1`
 
@@ -2510,26 +2975,36 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/liststores/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/liststores/v1"
+
+url="http://api.idolondemand.com/1/api/sync/liststores/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/liststores/v1`
 
@@ -2553,11 +3028,11 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/listuserroles/v1"
+
+
 
 data=
 {
@@ -2565,15 +3040,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/listuserroles/v1"
+
+url="http://api.idolondemand.com/1/api/sync/listuserroles/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/listuserroles/v1`
 
@@ -2600,11 +3085,11 @@ users | array | Set of users to filter.
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/listusers/v1"
+
+
 
 data=
 {
@@ -2612,15 +3097,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/listusers/v1"
+
+url="http://api.idolondemand.com/1/api/sync/listusers/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/listusers/v1`
 
@@ -2645,31 +3140,42 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/ocrdocument/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/ocrdocument/v1"
+
+url="http://api.idolondemand.com/1/api/sync/ocrdocument/v1"
 #GET
 data["url"]="myurl"
 resp=requests.get(url,params=data)
 #POST
 data["url"]="myurl"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["url"]="myurl"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/ocrdocument/v1`
 
@@ -2712,11 +3218,11 @@ document | document
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/predict/v1"
+
+
 
 data=
 {
@@ -2724,20 +3230,31 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/predict/v1"
+
+url="http://api.idolondemand.com/1/api/sync/predict/v1"
 #GET
 data["url"]="myurl"
 resp=requests.get(url,params=data)
 #POST
 data["url"]="myurl"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["url"]="myurl"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/predict/v1`
 
@@ -2778,31 +3295,42 @@ csv | CSV
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/querytextindex/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/querytextindex/v1"
+
+url="http://api.idolondemand.com/1/api/sync/querytextindex/v1"
 #GET
 data["text"]="mytext"
 resp=requests.get(url,params=data)
 #POST
 data["text"]="mytext"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["text"]="mytext"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/querytextindex/v1`
 
@@ -2885,31 +3413,42 @@ sentences | Sentences that contain query terms.
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/recognizebarcodes/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/recognizebarcodes/v1"
+
+url="http://api.idolondemand.com/1/api/sync/recognizebarcodes/v1"
 #GET
 data["url"]="myurl"
 resp=requests.get(url,params=data)
 #POST
 data["url"]="myurl"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["url"]="myurl"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/recognizebarcodes/v1`
 
@@ -2949,31 +3488,42 @@ any | Any
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/recognizefaces/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/recognizefaces/v1"
+
+url="http://api.idolondemand.com/1/api/sync/recognizefaces/v1"
 #GET
 data["url"]="myurl"
 resp=requests.get(url,params=data)
 #POST
 data["url"]="myurl"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["url"]="myurl"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/recognizefaces/v1`
 
@@ -3011,31 +3561,42 @@ facesinthewild | Faces in the Wild
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/recognizeimages/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/recognizeimages/v1"
+
+url="http://api.idolondemand.com/1/api/sync/recognizeimages/v1"
 #GET
 data["url"]="myurl"
 resp=requests.get(url,params=data)
 #POST
 data["url"]="myurl"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["url"]="myurl"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/recognizeimages/v1`
 
@@ -3080,33 +3641,38 @@ corporatelogos | Corporate Logos
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/recognizespeech/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
-#GET
-data["url"]="myurl"
-resp=requests.get(url,params=data)
-#POST
-data["url"]="myurl"
-resp=requests.post(url,data=data)
+asyncurl="http://api.idolondemand.com/1/api/async/recognizespeech/v1"
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["url"]="myurl"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
 
-`GET/POST http://api.idolondemand.com/1/api/{sync|async}/recognizespeech/v1`
+
+<aside class="warning">
+This API does not allow Synchronous calls, only Asynchronous calls are allowed
+</aside>
+`GET/POST http://api.idolondemand.com/1/api/async/recognizespeech/v1`
 
 Inputs and extra parameters should be query parameters when sending a GET request, but posted in the body when doing a POST request
 Multipart-form/data POSTs are also supported and required when sending file parameters.
@@ -3151,11 +3717,11 @@ es-ES | European Spanish
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/recommend/v1"
+
+
 
 data=
 {
@@ -3164,20 +3730,31 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/recommend/v1"
+
+url="http://api.idolondemand.com/1/api/sync/recommend/v1"
 #GET
 data["url"]="myurl"
 resp=requests.get(url,params=data)
 #POST
 data["url"]="myurl"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["url"]="myurl"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/recommend/v1`
 
@@ -3213,11 +3790,11 @@ recommendations_amount | number | The number of recommendations to produce for e
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/restoretextindex/v1"
+
+
 
 data=
 {
@@ -3227,15 +3804,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/restoretextindex/v1"
+
+url="http://api.idolondemand.com/1/api/sync/restoretextindex/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/restoretextindex/v1`
 
@@ -3262,11 +3849,11 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/retrieveclassificationobjects/v1"
+
+
 
 data=
 {
@@ -3274,15 +3861,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/retrieveclassificationobjects/v1"
+
+url="http://api.idolondemand.com/1/api/sync/retrieveclassificationobjects/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/retrieveclassificationobjects/v1`
 
@@ -3321,11 +3918,11 @@ collection_sequence | Collection Sequence
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/retrieveconfig/v1"
+
+
 
 data=
 {
@@ -3333,15 +3930,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/retrieveconfig/v1"
+
+url="http://api.idolondemand.com/1/api/sync/retrieveconfig/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/retrieveconfig/v1`
 
@@ -3367,26 +3974,36 @@ validation_key | string | Internal IOD validation key.
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/retrieveindexfields/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/retrieveindexfields/v1"
+
+url="http://api.idolondemand.com/1/api/sync/retrieveindexfields/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/retrieveindexfields/v1`
 
@@ -3414,11 +4031,11 @@ max_values | number | The number of field names to display. Displays maximum 100
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/retrievepolicyobjects/v1"
+
+
 
 data=
 {
@@ -3426,15 +4043,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/retrievepolicyobjects/v1"
+
+url="http://api.idolondemand.com/1/api/sync/retrievepolicyobjects/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/retrievepolicyobjects/v1`
 
@@ -3469,11 +4096,11 @@ policy_type | Policy Type
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/startconnector/v1"
+
+
 
 data=
 {
@@ -3481,15 +4108,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/startconnector/v1"
+
+url="http://api.idolondemand.com/1/api/sync/startconnector/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/startconnector/v1`
 
@@ -3517,11 +4154,11 @@ ignore_previous_state | boolean | Set to true to ignore the state of previous co
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/stopconnector/v1"
+
+
 
 data=
 {
@@ -3529,15 +4166,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/stopconnector/v1"
+
+url="http://api.idolondemand.com/1/api/sync/stopconnector/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/stopconnector/v1`
 
@@ -3562,31 +4209,42 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/storeobject/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/storeobject/v1"
+
+url="http://api.idolondemand.com/1/api/sync/storeobject/v1"
 #GET
 data["url"]="myurl"
 resp=requests.get(url,params=data)
 #POST
 data["url"]="myurl"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["url"]="myurl"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/storeobject/v1`
 
@@ -3618,31 +4276,42 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/tokenizetext/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/tokenizetext/v1"
+
+url="http://api.idolondemand.com/1/api/sync/tokenizetext/v1"
 #GET
 data["text"]="mytext"
 resp=requests.get(url,params=data)
 #POST
 data["text"]="mytext"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["text"]="mytext"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/tokenizetext/v1`
 
@@ -3692,11 +4361,11 @@ spa | Spanish
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/trainpredictor/v1"
+
+
 
 data=
 {
@@ -3705,20 +4374,31 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/trainpredictor/v1"
+
+url="http://api.idolondemand.com/1/api/sync/trainpredictor/v1"
 #GET
 data["url"]="myurl"
 resp=requests.get(url,params=data)
 #POST
 data["url"]="myurl"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["url"]="myurl"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/trainpredictor/v1`
 
@@ -3754,11 +4434,11 @@ empty_value | string | A value to use to represent an empty value in the data se
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/unassignrole/v1"
+
+
 
 data=
 {
@@ -3768,15 +4448,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/unassignrole/v1"
+
+url="http://api.idolondemand.com/1/api/sync/unassignrole/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/unassignrole/v1`
 
@@ -3803,11 +4493,11 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/updateclassificationobjects/v1"
+
+
 
 data=
 {
@@ -3816,15 +4506,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/updateclassificationobjects/v1"
+
+url="http://api.idolondemand.com/1/api/sync/updateclassificationobjects/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/updateclassificationobjects/v1`
 
@@ -3863,11 +4563,11 @@ collection_sequence | Collection Sequence
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/updateconnector/v1"
+
+
 
 data=
 {
@@ -3875,15 +4575,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/updateconnector/v1"
+
+url="http://api.idolondemand.com/1/api/sync/updateconnector/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/updateconnector/v1`
 
@@ -3914,11 +4624,11 @@ config | object | The configuration attributes, defined by attributes.json.
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/updatepolicyobjects/v1"
+
+
 
 data=
 {
@@ -3929,15 +4639,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/updatepolicyobjects/v1"
+
+url="http://api.idolondemand.com/1/api/sync/updatepolicyobjects/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/updatepolicyobjects/v1`
 
@@ -3972,11 +4692,11 @@ policy_type | Policy Type
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/updatequeryprofile/v1"
+
+
 
 data=
 {
@@ -3985,15 +4705,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/updatequeryprofile/v1"
+
+url="http://api.idolondemand.com/1/api/sync/updatequeryprofile/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/updatequeryprofile/v1`
 
@@ -4019,11 +4749,11 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/verify/v1"
+
+
 
 data=
 {
@@ -4031,15 +4761,25 @@ data=
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/verify/v1"
+
+url="http://api.idolondemand.com/1/api/sync/verify/v1"
 #GET
 resp=requests.get(url,params=data)
 #POST
 resp=requests.post(url,data=data)
+
+
+#Async
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/verify/v1`
 
@@ -4064,31 +4804,42 @@ Parameter | Type | Description
 
 
 
+
 ```python
-
-
 import requests
-url="http://api.idolondemand.com/1/api/sync/viewdocument/v1"
+
+
 
 data=
 {
 "apikey":mykey
 }
 
+asyncurl="http://api.idolondemand.com/1/api/async/viewdocument/v1"
+
+url="http://api.idolondemand.com/1/api/sync/viewdocument/v1"
 #GET
 data["url"]="myurl"
 resp=requests.get(url,params=data)
 #POST
 data["url"]="myurl"
 resp=requests.post(url,data=data)
+
 #File POST
 files={file:open("myfile.extension","rb")}
 resp=requests.post(url,files=files,data=data)
+
+#Async
+data["url"]="myurl"
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
 ```
 
 
 
 ### HTTP Request
+
 
 `GET/POST http://api.idolondemand.com/1/api/{sync|async}/viewdocument/v1`
 
