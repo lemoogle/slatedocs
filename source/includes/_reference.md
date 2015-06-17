@@ -33,10 +33,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -83,10 +81,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -130,10 +126,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -245,10 +239,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -367,10 +359,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -416,10 +406,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -470,10 +458,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -643,10 +629,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -697,10 +681,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -744,10 +726,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -806,10 +786,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -867,10 +845,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -923,10 +899,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -971,10 +945,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -1021,10 +993,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -1070,10 +1040,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -1127,10 +1095,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -1173,10 +1139,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -1227,10 +1191,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -1280,10 +1242,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -1327,10 +1287,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -1374,10 +1332,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -1420,10 +1376,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -1468,10 +1422,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -2059,10 +2011,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -2313,10 +2263,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -2360,10 +2308,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -2406,10 +2352,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -2452,10 +2396,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -2499,10 +2441,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -2544,10 +2484,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -2589,10 +2527,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -2637,10 +2573,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -3245,10 +3179,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -3293,10 +3225,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -3353,10 +3283,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -3399,10 +3327,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -3448,10 +3374,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -3504,10 +3428,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -3553,10 +3475,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -3790,10 +3710,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -3839,10 +3757,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -3899,10 +3815,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -3954,10 +3868,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -4011,10 +3923,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
@@ -4058,10 +3968,8 @@ data=
 }
 
 #GET
-data[""]="my"
 resp=requests.get(url,params=data)
 #POST
-data[""]="my"
 resp=requests.post(url,data=data)
 ```
 
