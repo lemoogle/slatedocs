@@ -905,7 +905,9 @@ Note: If a backend error persists, please raise a support ticket.
 
 <h2 id="ruby">Ruby</h2>
 
-<p><a href="https://github.com/HP-IDOL-OnDemand/iodruby">iodruby</a> - A small ruby library to call IDOL OnDemand APIs.</p>
+<h3 id="iodruby"><a href="https://github.com/HP-IDOL-OnDemand/iodruby">iodruby</a></h3>
+
+<p>A small ruby library to call IDOL OnDemand APIs.</p>
 <pre><code class="highlight ruby"><span class="nb">require</span> <span class="s2">"iodruby"</span>
 <span class="n">client</span><span class="o">=</span> <span class="no">IODClient</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"http://api.idolondemand.com"</span><span class="p">,</span><span class="vg">$apikey</span><span class="p">)</span>
 <span class="n">r</span><span class="o">=</span><span class="n">client</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span><span class="s1">'analyzesentiment'</span><span class="p">,{</span><span class="ss">:text</span><span class="o">=&gt;</span><span class="s1">'I like cats'</span><span class="p">})</span>
@@ -913,7 +915,9 @@ Note: If a backend error persists, please raise a support ticket.
 
 <h2 id="python">Python</h2>
 
-<p><a href="https://github.com/HP-IDOL-OnDemand/iod-python">iod-python</a> - A small python library to call IDOL OnDemand APIs.</p>
+<h3 id="iod-python"><a href="https://github.com/HP-IDOL-OnDemand/iod-python">iod-python</a></h3>
+
+<p>A small python library to call IDOL OnDemand APIs.</p>
 <pre><code class="highlight python"><span class="kn">from</span> <span class="nn">iodpython.iodindex</span> <span class="kn">import</span> <span class="n">IODClient</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">IODClient</span><span class="p">(</span><span class="s">"http://api.idolondemand.com/"</span><span class="p">,</span>
                             <span class="s">"myapikey"</span><span class="p">)</span>
