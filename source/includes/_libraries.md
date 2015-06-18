@@ -2,7 +2,8 @@
 
 ## Ruby
 
-[iodruby](https://github.com/HP-IDOL-OnDemand/iodruby) - A small ruby library to call IDOL OnDemand APIs.
+###[iodruby](https://github.com/HP-IDOL-OnDemand/iodruby)
+A small ruby library to call IDOL OnDemand APIs.
 
 
 
@@ -14,7 +15,8 @@ r=client.post('analyzesentiment',{:text=>'I like cats'})
 
 ## Python
 
-[iod-python](https://github.com/HP-IDOL-OnDemand/iod-python) - A small python library to call IDOL OnDemand APIs.
+###[iod-python](https://github.com/HP-IDOL-OnDemand/iod-python)
+A small python library to call IDOL OnDemand APIs.
 
 ```python
 from iodpython.iodindex import IODClient
