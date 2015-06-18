@@ -17,10 +17,11 @@ includes:
   - auth
   - asyncsync
   - files
-  - reference
   - errors
   - libraries
   - search
+  - reference
+
 
 search: true
 ---

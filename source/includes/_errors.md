@@ -147,7 +147,6 @@ Error Code | Description | HTTP Response Code
 
 Error Code | Description | HTTP Response Code
 ---- | --- | ---
-
 8001 | Content full | 400
 8002 | Index name invalid | 400
 8004 | Connector name invalid | 400
