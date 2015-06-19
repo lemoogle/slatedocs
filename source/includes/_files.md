@@ -22,6 +22,16 @@ requests.post("https://api.idolondemand.com/1/api/async/ocrdocument/v1",data=dat
 print r.json()
 ```
 
+```ruby
+require 'httpclient'
+require 'json'
+
+data={file:open("myscan.pdf"), mode:"document_photo", apikey:"apikey"}
+clnt = HTTPClient.new
+resp=clnt.post(url, data)
+body=JSON.parse(resp.body)
+```
+
 ```javascript
 var needle = require('needle');
 var data = {

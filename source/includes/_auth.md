@@ -3,17 +3,24 @@
 > To authorize, use this code:
 
 ```ruby
-rubycode here
+require 'httpclient'
+require 'json'
+
+myapikey="<apikey>"
+clnt = HTTPClient.new
+url="http://api.idolondemand.com/1/api/async/analyzesentiment/v1?text=I%20like%20cats&apikey="+myapikey
+#GET
+resp=clnt.get(url)
 ```
 
 ```python
 import requests
-myapikey="myapikey!"
+myapikey="<apikey>"
 requests.get("http://idolondemand.com/api/1/{sync,async}/{apiname}/v1?param1=val1&param2=val2&apikey="+myapikey)
 ```
 
 ```javascript
-var myapikey="myapikey!"
+var myapikey="<apikey>"
 
 #jquery
 

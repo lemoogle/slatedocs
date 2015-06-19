@@ -1,4 +1,4 @@
-# Indexing
+# Guide - Indexing
 
 Text Indexes in IDOL OnDemand allow the indexing of documents, files, tweets or any other form of unstructured text content. Once indexed that content can be searched through utilizing IDOL's powerful conceptual search capabilities; not only can the content be searched it can be organized, categorized, clustered and linked.
 

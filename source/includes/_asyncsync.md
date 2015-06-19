@@ -13,8 +13,34 @@ Let's consider a sentiment analysis example
 ## Synchronous
 
 ```shell
-curl `http://api.idolondemand.com/1/api/sync/analyzesentiment/v1?text=I%20like%20cats&apikey=apikey`
+curl http://api.idolondemand.com/1/api/sync/analyzesentiment/v1?text=I%20like%20cats&apikey=apikey
 ```
+
+```ruby
+require 'httpclient'
+require 'json'
+
+clnt = HTTPClient.new
+url="http://api.idolondemand.com/1/api/sync/analyzesentiment/v1?text=I%20like%20cats&apikey=apikey"
+#GET
+resp=clnt.get(url)
+body=JSON.parse(resp.body)
+```
+
+```python
+import requests
+url="http://api.idolondemand.com/1/api/sync/analyzesentiment/v1?text=I%20like%20cats&apikey=apikey"
+bodyobj = requests.get(url).json()
+```
+
+```javascript
+var needle = require('needle');
+url="http://api.idolondemand.com/1/api/sync/analyzesentiment/v1?text=I%20like%20cats&apikey=apikey"
+needle.request('get', url, function(err, resp, body) {
+  console.log(body)
+});
+```
+
 > The above command returns JSON structured like this:
 
 ```json
@@ -36,6 +62,34 @@ curl `http://api.idolondemand.com/1/api/sync/analyzesentiment/v1?text=I%20like%2
 ```shell
 curl http://api.idolondemand.com/1/api/async/analyzesentiment/v1?text=I%20like%20cats&apikey=apikey
 ```
+
+
+```ruby
+require 'httpclient'
+require 'json'
+
+clnt = HTTPClient.new
+url="http://api.idolondemand.com/1/api/async/analyzesentiment/v1?text=I%20like%20cats&apikey=apikey"
+#GET
+resp=clnt.get(url)
+body=JSON.parse(resp.body)
+```
+
+```python
+import requests
+url="http://api.idolondemand.com/1/api/async/analyzesentiment/v1?text=I%20like%20cats&apikey=apikey"
+bodyobj = requests.get(url).json()
+```
+
+```javascript
+var needle = require('needle');
+url="http://api.idolondemand.com/1/api/async/analyzesentiment/v1?text=I%20like%20cats&apikey=apikey"
+needle.request('get', url, function(err, resp, body) {
+  console.log(body)
+});
+```
+
+
 > The above command returns JSON structured like this:
 
 ```json
@@ -48,6 +102,29 @@ curl http://api.idolondemand.com/1/api/async/analyzesentiment/v1?text=I%20like%2
 
 curl https://api.idolondemand.com/1/job/status/usw3p_3eb5f2a4-3950-4f67-ab58-6597e9fe17ca?apikey=myapikey
 ```
+
+```ruby
+jobid=body[:jobId]
+jobresp=clnt.get("https://api.idolondemand.com/1/job/status/"+jobid"?apikey=myapikey")
+```
+
+```python
+jobid=bodyobj["jobId"]
+resp=requests.get("https://api.idolondemand.com/1/job/status/"+jobid+"?apikey=myapikey")
+
+```
+
+```javascript
+var needle = require('needle');
+url="http://api.idolondemand.com/1/api/sync/analyzesentiment/v1?text=I%20like%20cats&apikey=apikey"
+needle.get(url, function(err, resp, body) {
+  var jobid=body.jobId
+  needle.get("https://api.idolondemand.com/1/job/status/"+jobid"?apikey=myapikey",function(err,resp,body){
+    console.log(body)
+  }
+});
+```
+
 
 ```json
 {

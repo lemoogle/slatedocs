@@ -21,7 +21,7 @@
 ```python
 import requests
 
-data={"agent":"agent", "training":"training", "user":"user", "store":"store"}
+data={"agent":"agent", "training":"training", "user":"user", "store":"store", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/addagent/v1"
 
 url="http://api.idolondemand.com/1/api/sync/addagent/v1"
@@ -44,9 +44,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={agent:"agent", training:"training", user:"user", store:"store"}
+data={agent:"agent", training:"training", user:"user", store:"store", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/addagent/v1"
 url="http://api.idolondemand.com/1/api/sync/addagent/v1"
@@ -68,7 +67,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"agent":"agent", "training":"training", "user":"user", "store":"store"}
+data={"agent":"agent", "training":"training", "user":"user", "store":"store", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/addagent/v1"
@@ -138,7 +137,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={"role":"role", "store":"store"}
+data={"role":"role", "store":"store", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/addrole/v1"
 
 url="http://api.idolondemand.com/1/api/sync/addrole/v1"
@@ -161,9 +160,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={role:"role", store:"store"}
+data={role:"role", store:"store", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/addrole/v1"
 url="http://api.idolondemand.com/1/api/sync/addrole/v1"
@@ -185,7 +183,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"role":"role", "store":"store"}
+data={"role":"role", "store":"store", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/addrole/v1"
@@ -253,7 +251,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={"store":"store"}
+data={"store":"store", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/addstore/v1"
 
 url="http://api.idolondemand.com/1/api/sync/addstore/v1"
@@ -276,9 +274,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={store:"store"}
+data={store:"store", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/addstore/v1"
 url="http://api.idolondemand.com/1/api/sync/addstore/v1"
@@ -300,7 +297,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"store":"store"}
+data={"store":"store", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/addstore/v1"
@@ -367,7 +364,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={"index":"index"}
+data={"index":"index", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/addtotextindex/v1"
 
 url="http://api.idolondemand.com/1/api/sync/addtotextindex/v1"
@@ -396,9 +393,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={index:"index"}
+data={index:"index", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/addtotextindex/v1"
 url="http://api.idolondemand.com/1/api/sync/addtotextindex/v1"
@@ -427,7 +423,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"index":"index"}
+data={"index":"index", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/addtotextindex/v1"
@@ -522,7 +518,7 @@ replace | On adding a document, remove all existing documents with the same refe
 ```python
 import requests
 
-data={"password":"password", "email":"email", "store":"store"}
+data={"password":"password", "email":"email", "store":"store", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/adduser/v1"
 
 url="http://api.idolondemand.com/1/api/sync/adduser/v1"
@@ -545,9 +541,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={password:"password", email:"email", store:"store"}
+data={password:"password", email:"email", store:"store", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/adduser/v1"
 url="http://api.idolondemand.com/1/api/sync/adduser/v1"
@@ -569,7 +564,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"password":"password", "email":"email", "store":"store"}
+data={"password":"password", "email":"email", "store":"store", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/adduser/v1"
@@ -638,7 +633,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/analyzesentiment/v1"
 
 url="http://api.idolondemand.com/1/api/sync/analyzesentiment/v1"
@@ -667,9 +662,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/analyzesentiment/v1"
 url="http://api.idolondemand.com/1/api/sync/analyzesentiment/v1"
@@ -698,7 +692,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/analyzesentiment/v1"
@@ -799,7 +793,7 @@ cze | Czech
 ```python
 import requests
 
-data={"role":"role", "user":"user", "store":"store"}
+data={"role":"role", "user":"user", "store":"store", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/assignrole/v1"
 
 url="http://api.idolondemand.com/1/api/sync/assignrole/v1"
@@ -822,9 +816,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={role:"role", user:"user", store:"store"}
+data={role:"role", user:"user", store:"store", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/assignrole/v1"
 url="http://api.idolondemand.com/1/api/sync/assignrole/v1"
@@ -846,7 +839,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"role":"role", "user":"user", "store":"store"}
+data={"role":"role", "user":"user", "store":"store", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/assignrole/v1"
@@ -915,7 +908,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={"store":"store", "mechanism":"mechanism"}
+data={"store":"store", "mechanism":"mechanism", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/authenticate/v1"
 
 url="http://api.idolondemand.com/1/api/sync/authenticate/v1"
@@ -938,9 +931,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={store:"store", mechanism:"mechanism"}
+data={store:"store", mechanism:"mechanism", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/authenticate/v1"
 url="http://api.idolondemand.com/1/api/sync/authenticate/v1"
@@ -962,7 +954,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"store":"store", "mechanism":"mechanism"}
+data={"store":"store", "mechanism":"mechanism", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/authenticate/v1"
@@ -1037,7 +1029,7 @@ simple | Simple authentication
 ```python
 import requests
 
-data={"connector":"connector"}
+data={"connector":"connector", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/cancelconnectorschedule/v1"
 
 url="http://api.idolondemand.com/1/api/sync/cancelconnectorschedule/v1"
@@ -1060,9 +1052,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={connector:"connector"}
+data={connector:"connector", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/cancelconnectorschedule/v1"
 url="http://api.idolondemand.com/1/api/sync/cancelconnectorschedule/v1"
@@ -1084,7 +1075,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"connector":"connector"}
+data={"connector":"connector", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/cancelconnectorschedule/v1"
@@ -1151,7 +1142,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/categorizedocument/v1"
 
 url="http://api.idolondemand.com/1/api/sync/categorizedocument/v1"
@@ -1180,9 +1171,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/categorizedocument/v1"
 url="http://api.idolondemand.com/1/api/sync/categorizedocument/v1"
@@ -1211,7 +1201,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/categorizedocument/v1"
@@ -1310,7 +1300,7 @@ reference | Print reference fields.
 ```python
 import requests
 
-data={"collection_sequence":"collection_sequence"}
+data={"collection_sequence":"collection_sequence", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/classifydocument/v1"
 
 url="http://api.idolondemand.com/1/api/sync/classifydocument/v1"
@@ -1339,9 +1329,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={collection_sequence:"collection_sequence"}
+data={collection_sequence:"collection_sequence", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/classifydocument/v1"
 url="http://api.idolondemand.com/1/api/sync/classifydocument/v1"
@@ -1370,7 +1359,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"collection_sequence":"collection_sequence"}
+data={"collection_sequence":"collection_sequence", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/classifydocument/v1"
@@ -1456,7 +1445,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/connectorhistory/v1"
 
 url="http://api.idolondemand.com/1/api/sync/connectorhistory/v1"
@@ -1479,9 +1468,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/connectorhistory/v1"
 url="http://api.idolondemand.com/1/api/sync/connectorhistory/v1"
@@ -1503,7 +1491,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/connectorhistory/v1"
@@ -1578,7 +1566,7 @@ statuses | array | The statuses that you want to return.
 ```python
 import requests
 
-data={"connector":"connector"}
+data={"connector":"connector", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/connectorstatus/v1"
 
 url="http://api.idolondemand.com/1/api/sync/connectorstatus/v1"
@@ -1601,9 +1589,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={connector:"connector"}
+data={connector:"connector", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/connectorstatus/v1"
 url="http://api.idolondemand.com/1/api/sync/connectorstatus/v1"
@@ -1625,7 +1612,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"connector":"connector"}
+data={"connector":"connector", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/connectorstatus/v1"
@@ -1693,7 +1680,7 @@ schedule_information | boolean | Set to true to return information about the sch
 ```python
 import requests
 
-data={"type":"type"}
+data={"type":"type", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/createclassificationobjects/v1"
 
 url="http://api.idolondemand.com/1/api/sync/createclassificationobjects/v1"
@@ -1716,9 +1703,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={type:"type"}
+data={type:"type", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/createclassificationobjects/v1"
 url="http://api.idolondemand.com/1/api/sync/createclassificationobjects/v1"
@@ -1740,7 +1726,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"type":"type"}
+data={"type":"type", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/createclassificationobjects/v1"
@@ -1820,7 +1806,7 @@ collection_sequence | Collection Sequence
 ```python
 import requests
 
-data={"destination":"destination", "connector":"connector", "flavor":"flavor", "config":"config"}
+data={"destination":"destination", "connector":"connector", "flavor":"flavor", "config":"config", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/createconnector/v1"
 
 url="http://api.idolondemand.com/1/api/sync/createconnector/v1"
@@ -1843,9 +1829,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={destination:"destination", connector:"connector", flavor:"flavor", config:"config"}
+data={destination:"destination", connector:"connector", flavor:"flavor", config:"config", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/createconnector/v1"
 url="http://api.idolondemand.com/1/api/sync/createconnector/v1"
@@ -1867,7 +1852,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"destination":"destination", "connector":"connector", "flavor":"flavor", "config":"config"}
+data={"destination":"destination", "connector":"connector", "flavor":"flavor", "config":"config", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/createconnector/v1"
@@ -1947,7 +1932,7 @@ filesystem_onsite | OnSite Filesystem Connector
 ```python
 import requests
 
-data={"additional":"additional", "type":"type", "name":"name"}
+data={"additional":"additional", "type":"type", "name":"name", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/createpolicyobjects/v1"
 
 url="http://api.idolondemand.com/1/api/sync/createpolicyobjects/v1"
@@ -1970,9 +1955,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={additional:"additional", type:"type", name:"name"}
+data={additional:"additional", type:"type", name:"name", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/createpolicyobjects/v1"
 url="http://api.idolondemand.com/1/api/sync/createpolicyobjects/v1"
@@ -1994,7 +1978,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"additional":"additional", "type":"type", "name":"name"}
+data={"additional":"additional", "type":"type", "name":"name", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/createpolicyobjects/v1"
@@ -2070,7 +2054,7 @@ policy_type | Policy Type
 ```python
 import requests
 
-data={"query_profile":"query_profile", "config":"config"}
+data={"query_profile":"query_profile", "config":"config", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/createqueryprofile/v1"
 
 url="http://api.idolondemand.com/1/api/sync/createqueryprofile/v1"
@@ -2093,9 +2077,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={query_profile:"query_profile", config:"config"}
+data={query_profile:"query_profile", config:"config", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/createqueryprofile/v1"
 url="http://api.idolondemand.com/1/api/sync/createqueryprofile/v1"
@@ -2117,7 +2100,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"query_profile":"query_profile", "config":"config"}
+data={"query_profile":"query_profile", "config":"config", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/createqueryprofile/v1"
@@ -2185,7 +2168,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={"index":"index", "flavor":"flavor"}
+data={"index":"index", "flavor":"flavor", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/createtextindex/v1"
 
 url="http://api.idolondemand.com/1/api/sync/createtextindex/v1"
@@ -2208,9 +2191,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={index:"index", flavor:"flavor"}
+data={index:"index", flavor:"flavor", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/createtextindex/v1"
 url="http://api.idolondemand.com/1/api/sync/createtextindex/v1"
@@ -2232,7 +2214,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"index":"index", "flavor":"flavor"}
+data={"index":"index", "flavor":"flavor", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/createtextindex/v1"
@@ -2301,7 +2283,7 @@ description | string | A brief description of the index.
 ```python
 import requests
 
-data={"agent":"agent", "user":"user", "store":"store"}
+data={"agent":"agent", "user":"user", "store":"store", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/deleteagent/v1"
 
 url="http://api.idolondemand.com/1/api/sync/deleteagent/v1"
@@ -2324,9 +2306,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={agent:"agent", user:"user", store:"store"}
+data={agent:"agent", user:"user", store:"store", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/deleteagent/v1"
 url="http://api.idolondemand.com/1/api/sync/deleteagent/v1"
@@ -2348,7 +2329,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"agent":"agent", "user":"user", "store":"store"}
+data={"agent":"agent", "user":"user", "store":"store", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/deleteagent/v1"
@@ -2417,7 +2398,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={"type":"type", "id":"id"}
+data={"type":"type", "id":"id", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/deleteclassificationobjects/v1"
 
 url="http://api.idolondemand.com/1/api/sync/deleteclassificationobjects/v1"
@@ -2440,9 +2421,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={type:"type", id:"id"}
+data={type:"type", id:"id", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/deleteclassificationobjects/v1"
 url="http://api.idolondemand.com/1/api/sync/deleteclassificationobjects/v1"
@@ -2464,7 +2444,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"type":"type", "id":"id"}
+data={"type":"type", "id":"id", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/deleteclassificationobjects/v1"
@@ -2542,7 +2522,7 @@ collection_sequence | Collection Sequence
 ```python
 import requests
 
-data={"connector":"connector"}
+data={"connector":"connector", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/deleteconnector/v1"
 
 url="http://api.idolondemand.com/1/api/sync/deleteconnector/v1"
@@ -2565,9 +2545,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={connector:"connector"}
+data={connector:"connector", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/deleteconnector/v1"
 url="http://api.idolondemand.com/1/api/sync/deleteconnector/v1"
@@ -2589,7 +2568,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"connector":"connector"}
+data={"connector":"connector", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/deleteconnector/v1"
@@ -2656,7 +2635,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={"index":"index"}
+data={"index":"index", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/deletefromtextindex/v1"
 
 url="http://api.idolondemand.com/1/api/sync/deletefromtextindex/v1"
@@ -2679,9 +2658,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={index:"index"}
+data={index:"index", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/deletefromtextindex/v1"
 url="http://api.idolondemand.com/1/api/sync/deletefromtextindex/v1"
@@ -2703,7 +2681,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"index":"index"}
+data={"index":"index", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/deletefromtextindex/v1"
@@ -2777,7 +2755,7 @@ delete_all_documents | boolean | Set to true to delete all documents from the te
 ```python
 import requests
 
-data={"type":"type", "id":"id"}
+data={"type":"type", "id":"id", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/deletepolicyobjects/v1"
 
 url="http://api.idolondemand.com/1/api/sync/deletepolicyobjects/v1"
@@ -2800,9 +2778,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={type:"type", id:"id"}
+data={type:"type", id:"id", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/deletepolicyobjects/v1"
 url="http://api.idolondemand.com/1/api/sync/deletepolicyobjects/v1"
@@ -2824,7 +2801,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"type":"type", "id":"id"}
+data={"type":"type", "id":"id", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/deletepolicyobjects/v1"
@@ -2898,7 +2875,7 @@ policy_type | Policy Type
 ```python
 import requests
 
-data={"query_profile":"query_profile"}
+data={"query_profile":"query_profile", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/deletequeryprofile/v1"
 
 url="http://api.idolondemand.com/1/api/sync/deletequeryprofile/v1"
@@ -2921,9 +2898,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={query_profile:"query_profile"}
+data={query_profile:"query_profile", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/deletequeryprofile/v1"
 url="http://api.idolondemand.com/1/api/sync/deletequeryprofile/v1"
@@ -2945,7 +2921,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"query_profile":"query_profile"}
+data={"query_profile":"query_profile", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/deletequeryprofile/v1"
@@ -3012,7 +2988,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={"role":"role", "store":"store"}
+data={"role":"role", "store":"store", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/deleterole/v1"
 
 url="http://api.idolondemand.com/1/api/sync/deleterole/v1"
@@ -3035,9 +3011,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={role:"role", store:"store"}
+data={role:"role", store:"store", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/deleterole/v1"
 url="http://api.idolondemand.com/1/api/sync/deleterole/v1"
@@ -3059,7 +3034,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"role":"role", "store":"store"}
+data={"role":"role", "store":"store", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/deleterole/v1"
@@ -3127,7 +3102,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={"store":"store"}
+data={"store":"store", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/deletestore/v1"
 
 url="http://api.idolondemand.com/1/api/sync/deletestore/v1"
@@ -3150,9 +3125,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={store:"store"}
+data={store:"store", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/deletestore/v1"
 url="http://api.idolondemand.com/1/api/sync/deletestore/v1"
@@ -3174,7 +3148,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"store":"store"}
+data={"store":"store", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/deletestore/v1"
@@ -3241,7 +3215,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={"index":"index"}
+data={"index":"index", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/deletetextindex/v1"
 
 url="http://api.idolondemand.com/1/api/sync/deletetextindex/v1"
@@ -3264,9 +3238,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={index:"index"}
+data={index:"index", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/deletetextindex/v1"
 url="http://api.idolondemand.com/1/api/sync/deletetextindex/v1"
@@ -3288,7 +3261,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"index":"index"}
+data={"index":"index", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/deletetextindex/v1"
@@ -3356,7 +3329,7 @@ confirm | string | The confirmation hash key returned after the first request.
 ```python
 import requests
 
-data={"email":"email", "store":"store"}
+data={"email":"email", "store":"store", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/deleteuser/v1"
 
 url="http://api.idolondemand.com/1/api/sync/deleteuser/v1"
@@ -3379,9 +3352,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={email:"email", store:"store"}
+data={email:"email", store:"store", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/deleteuser/v1"
 url="http://api.idolondemand.com/1/api/sync/deleteuser/v1"
@@ -3403,7 +3375,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"email":"email", "store":"store"}
+data={"email":"email", "store":"store", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/deleteuser/v1"
@@ -3471,7 +3443,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/detectfaces/v1"
 
 url="http://api.idolondemand.com/1/api/sync/detectfaces/v1"
@@ -3500,9 +3472,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/detectfaces/v1"
 url="http://api.idolondemand.com/1/api/sync/detectfaces/v1"
@@ -3531,7 +3502,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/detectfaces/v1"
@@ -3616,7 +3587,7 @@ additional | boolean | Whether to estimate the ages of the faces.
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/expandcontainer/v1"
 
 url="http://api.idolondemand.com/1/api/sync/expandcontainer/v1"
@@ -3645,9 +3616,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/expandcontainer/v1"
 url="http://api.idolondemand.com/1/api/sync/expandcontainer/v1"
@@ -3676,7 +3646,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/expandcontainer/v1"
@@ -3762,7 +3732,7 @@ password | array | Passwords to use to extract the files.
 ```python
 import requests
 
-data={"expansion":"expansion"}
+data={"expansion":"expansion", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/expandterms/v1"
 
 url="http://api.idolondemand.com/1/api/sync/expandterms/v1"
@@ -3791,9 +3761,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={expansion:"expansion"}
+data={expansion:"expansion", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/expandterms/v1"
 url="http://api.idolondemand.com/1/api/sync/expandterms/v1"
@@ -3822,7 +3791,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"expansion":"expansion"}
+data={"expansion":"expansion", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/expandterms/v1"
@@ -3923,7 +3892,7 @@ stem | Same stem
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/extractconcepts/v1"
 
 url="http://api.idolondemand.com/1/api/sync/extractconcepts/v1"
@@ -3952,9 +3921,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/extractconcepts/v1"
 url="http://api.idolondemand.com/1/api/sync/extractconcepts/v1"
@@ -3983,7 +3951,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/extractconcepts/v1"
@@ -4080,7 +4048,7 @@ spa | Spanish
 ```python
 import requests
 
-data={"entity_type":"entity_type"}
+data={"entity_type":"entity_type", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/extractentities/v1"
 
 url="http://api.idolondemand.com/1/api/sync/extractentities/v1"
@@ -4109,9 +4077,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={entity_type:"entity_type"}
+data={entity_type:"entity_type", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/extractentities/v1"
 url="http://api.idolondemand.com/1/api/sync/extractentities/v1"
@@ -4140,7 +4107,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"entity_type":"entity_type"}
+data={"entity_type":"entity_type", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/extractentities/v1"
@@ -4228,7 +4195,7 @@ unique_entities | boolean | Set to true to remove duplicate entity matches.
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/extracttext/v1"
 
 url="http://api.idolondemand.com/1/api/sync/extracttext/v1"
@@ -4257,9 +4224,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/extracttext/v1"
 url="http://api.idolondemand.com/1/api/sync/extracttext/v1"
@@ -4288,7 +4254,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/extracttext/v1"
@@ -4378,7 +4344,7 @@ reference_prefix | array | A string to add to the start of the reference of docu
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/findrelatedconcepts/v1"
 
 url="http://api.idolondemand.com/1/api/sync/findrelatedconcepts/v1"
@@ -4407,9 +4373,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/findrelatedconcepts/v1"
 url="http://api.idolondemand.com/1/api/sync/findrelatedconcepts/v1"
@@ -4438,7 +4403,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/findrelatedconcepts/v1"
@@ -4530,7 +4495,7 @@ indexes | array | Type the name of one or more IDOL OnDemand text index to retur
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/findsimilar/v1"
 
 url="http://api.idolondemand.com/1/api/sync/findsimilar/v1"
@@ -4559,9 +4524,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/findsimilar/v1"
 url="http://api.idolondemand.com/1/api/sync/findsimilar/v1"
@@ -4590,7 +4554,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/findsimilar/v1"
@@ -4726,7 +4690,7 @@ sentences | Sentences that contain query terms.
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/getcontent/v1"
 
 url="http://api.idolondemand.com/1/api/sync/getcontent/v1"
@@ -4749,9 +4713,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/getcontent/v1"
 url="http://api.idolondemand.com/1/api/sync/getcontent/v1"
@@ -4773,7 +4736,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/getcontent/v1"
@@ -4863,7 +4826,7 @@ parametric | Parametric fields
 ```python
 import requests
 
-data={"field_name":"field_name"}
+data={"field_name":"field_name", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/getparametricvalues/v1"
 
 url="http://api.idolondemand.com/1/api/sync/getparametricvalues/v1"
@@ -4889,9 +4852,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={field_name:"field_name"}
+data={field_name:"field_name", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/getparametricvalues/v1"
 url="http://api.idolondemand.com/1/api/sync/getparametricvalues/v1"
@@ -4916,7 +4878,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"field_name":"field_name"}
+data={"field_name":"field_name", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/getparametricvalues/v1"
@@ -5007,7 +4969,7 @@ reverse_alphabetical | Reverse alphabetical.
 ```python
 import requests
 
-data={"highlight_expression":"highlight_expression"}
+data={"highlight_expression":"highlight_expression", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/highlighttext/v1"
 
 url="http://api.idolondemand.com/1/api/sync/highlighttext/v1"
@@ -5036,9 +4998,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={highlight_expression:"highlight_expression"}
+data={highlight_expression:"highlight_expression", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/highlighttext/v1"
 url="http://api.idolondemand.com/1/api/sync/highlighttext/v1"
@@ -5067,7 +5028,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"highlight_expression":"highlight_expression"}
+data={"highlight_expression":"highlight_expression", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/highlighttext/v1"
@@ -5155,7 +5116,7 @@ end_tag | string | The closing HTML tag to use to highlight a link term. If omit
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/identifylanguage/v1"
 
 url="http://api.idolondemand.com/1/api/sync/identifylanguage/v1"
@@ -5184,9 +5145,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/identifylanguage/v1"
 url="http://api.idolondemand.com/1/api/sync/identifylanguage/v1"
@@ -5215,7 +5175,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/identifylanguage/v1"
@@ -5301,7 +5261,7 @@ additional_metadata | boolean | Set to true to get additional metadata informati
 ```python
 import requests
 
-data={"index":"index"}
+data={"index":"index", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/indexstatus/v1"
 
 url="http://api.idolondemand.com/1/api/sync/indexstatus/v1"
@@ -5324,9 +5284,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={index:"index"}
+data={index:"index", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/indexstatus/v1"
 url="http://api.idolondemand.com/1/api/sync/indexstatus/v1"
@@ -5348,7 +5307,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"index":"index"}
+data={"index":"index", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/indexstatus/v1"
@@ -5415,7 +5374,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={"user":"user", "store":"store"}
+data={"user":"user", "store":"store", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/listagents/v1"
 
 url="http://api.idolondemand.com/1/api/sync/listagents/v1"
@@ -5438,9 +5397,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={user:"user", store:"store"}
+data={user:"user", store:"store", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/listagents/v1"
 url="http://api.idolondemand.com/1/api/sync/listagents/v1"
@@ -5462,7 +5420,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"user":"user", "store":"store"}
+data={"user":"user", "store":"store", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/listagents/v1"
@@ -5530,7 +5488,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/listindexes/v1"
 
 url="http://api.idolondemand.com/1/api/sync/listindexes/v1"
@@ -5553,9 +5511,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/listindexes/v1"
 url="http://api.idolondemand.com/1/api/sync/listindexes/v1"
@@ -5577,7 +5534,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/listindexes/v1"
@@ -5645,7 +5602,7 @@ type | array | Match against particular worker sub-types.
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/listresources/v1"
 
 url="http://api.idolondemand.com/1/api/sync/listresources/v1"
@@ -5668,9 +5625,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/listresources/v1"
 url="http://api.idolondemand.com/1/api/sync/listresources/v1"
@@ -5692,7 +5648,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/listresources/v1"
@@ -5760,7 +5716,7 @@ type | array | Match against particular worker sub-types.
 ```python
 import requests
 
-data={"store":"store"}
+data={"store":"store", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/listroles/v1"
 
 url="http://api.idolondemand.com/1/api/sync/listroles/v1"
@@ -5783,9 +5739,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={store:"store"}
+data={store:"store", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/listroles/v1"
 url="http://api.idolondemand.com/1/api/sync/listroles/v1"
@@ -5807,7 +5762,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"store":"store"}
+data={"store":"store", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/listroles/v1"
@@ -5874,7 +5829,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/liststores/v1"
 
 url="http://api.idolondemand.com/1/api/sync/liststores/v1"
@@ -5897,9 +5852,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/liststores/v1"
 url="http://api.idolondemand.com/1/api/sync/liststores/v1"
@@ -5921,7 +5875,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/liststores/v1"
@@ -5987,7 +5941,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={"store":"store"}
+data={"store":"store", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/listuserroles/v1"
 
 url="http://api.idolondemand.com/1/api/sync/listuserroles/v1"
@@ -6010,9 +5964,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={store:"store"}
+data={store:"store", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/listuserroles/v1"
 url="http://api.idolondemand.com/1/api/sync/listuserroles/v1"
@@ -6034,7 +5987,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"store":"store"}
+data={"store":"store", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/listuserroles/v1"
@@ -6103,7 +6056,7 @@ users | array | Set of users to filter.
 ```python
 import requests
 
-data={"store":"store"}
+data={"store":"store", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/listusers/v1"
 
 url="http://api.idolondemand.com/1/api/sync/listusers/v1"
@@ -6126,9 +6079,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={store:"store"}
+data={store:"store", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/listusers/v1"
 url="http://api.idolondemand.com/1/api/sync/listusers/v1"
@@ -6150,7 +6102,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"store":"store"}
+data={"store":"store", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/listusers/v1"
@@ -6217,7 +6169,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/ocrdocument/v1"
 
 url="http://api.idolondemand.com/1/api/sync/ocrdocument/v1"
@@ -6246,9 +6198,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/ocrdocument/v1"
 url="http://api.idolondemand.com/1/api/sync/ocrdocument/v1"
@@ -6277,7 +6228,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/ocrdocument/v1"
@@ -6372,7 +6323,7 @@ document | document
 ```python
 import requests
 
-data={"service_name":"service_name"}
+data={"service_name":"service_name", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/predict/v1"
 
 url="http://api.idolondemand.com/1/api/sync/predict/v1"
@@ -6401,9 +6352,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={service_name:"service_name"}
+data={service_name:"service_name", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/predict/v1"
 url="http://api.idolondemand.com/1/api/sync/predict/v1"
@@ -6432,7 +6382,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"service_name":"service_name"}
+data={"service_name":"service_name", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/predict/v1"
@@ -6525,7 +6475,7 @@ csv | CSV
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/querytextindex/v1"
 
 url="http://api.idolondemand.com/1/api/sync/querytextindex/v1"
@@ -6554,9 +6504,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/querytextindex/v1"
 url="http://api.idolondemand.com/1/api/sync/querytextindex/v1"
@@ -6585,7 +6534,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/querytextindex/v1"
@@ -6720,7 +6669,7 @@ sentences | Sentences that contain query terms.
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/recognizebarcodes/v1"
 
 url="http://api.idolondemand.com/1/api/sync/recognizebarcodes/v1"
@@ -6749,9 +6698,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/recognizebarcodes/v1"
 url="http://api.idolondemand.com/1/api/sync/recognizebarcodes/v1"
@@ -6780,7 +6728,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/recognizebarcodes/v1"
@@ -6872,7 +6820,7 @@ any | Any
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/recognizefaces/v1"
 
 url="http://api.idolondemand.com/1/api/sync/recognizefaces/v1"
@@ -6901,9 +6849,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/recognizefaces/v1"
 url="http://api.idolondemand.com/1/api/sync/recognizefaces/v1"
@@ -6932,7 +6879,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/recognizefaces/v1"
@@ -7022,7 +6969,7 @@ facesinthewild | Faces in the Wild
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/recognizeimages/v1"
 
 url="http://api.idolondemand.com/1/api/sync/recognizeimages/v1"
@@ -7051,9 +6998,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/recognizeimages/v1"
 url="http://api.idolondemand.com/1/api/sync/recognizeimages/v1"
@@ -7082,7 +7028,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/recognizeimages/v1"
@@ -7179,7 +7125,7 @@ corporatelogos | Corporate Logos
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/recognizespeech/v1"
 #File POST
 files={file:open("myfile.extension","rb")}
@@ -7199,9 +7145,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/recognizespeech/v1"
 #File POST
@@ -7221,7 +7166,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/recognizespeech/v1"
@@ -7312,7 +7257,7 @@ es-ES | European Spanish
 ```python
 import requests
 
-data={"required_label":"required_label", "service_name":"service_name"}
+data={"required_label":"required_label", "service_name":"service_name", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/recommend/v1"
 
 url="http://api.idolondemand.com/1/api/sync/recommend/v1"
@@ -7341,9 +7286,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={required_label:"required_label", service_name:"service_name"}
+data={required_label:"required_label", service_name:"service_name", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/recommend/v1"
 url="http://api.idolondemand.com/1/api/sync/recommend/v1"
@@ -7372,7 +7316,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"required_label":"required_label", "service_name":"service_name"}
+data={"required_label":"required_label", "service_name":"service_name", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/recommend/v1"
@@ -7460,7 +7404,7 @@ recommendations_amount | number | The number of recommendations to produce for e
 ```python
 import requests
 
-data={"date":"date", "index":"index", "new_index":"new_index"}
+data={"date":"date", "index":"index", "new_index":"new_index", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/restoretextindex/v1"
 
 url="http://api.idolondemand.com/1/api/sync/restoretextindex/v1"
@@ -7483,9 +7427,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={date:"date", index:"index", new_index:"new_index"}
+data={date:"date", index:"index", new_index:"new_index", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/restoretextindex/v1"
 url="http://api.idolondemand.com/1/api/sync/restoretextindex/v1"
@@ -7507,7 +7450,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"date":"date", "index":"index", "new_index":"new_index"}
+data={"date":"date", "index":"index", "new_index":"new_index", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/restoretextindex/v1"
@@ -7576,7 +7519,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={"type":"type"}
+data={"type":"type", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/retrieveclassificationobjects/v1"
 
 url="http://api.idolondemand.com/1/api/sync/retrieveclassificationobjects/v1"
@@ -7599,9 +7542,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={type:"type"}
+data={type:"type", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/retrieveclassificationobjects/v1"
 url="http://api.idolondemand.com/1/api/sync/retrieveclassificationobjects/v1"
@@ -7623,7 +7565,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"type":"type"}
+data={"type":"type", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/retrieveclassificationobjects/v1"
@@ -7704,7 +7646,7 @@ collection_sequence | Collection Sequence
 ```python
 import requests
 
-data={"connector":"connector"}
+data={"connector":"connector", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/retrieveconfig/v1"
 
 url="http://api.idolondemand.com/1/api/sync/retrieveconfig/v1"
@@ -7727,9 +7669,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={connector:"connector"}
+data={connector:"connector", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/retrieveconfig/v1"
 url="http://api.idolondemand.com/1/api/sync/retrieveconfig/v1"
@@ -7751,7 +7692,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"connector":"connector"}
+data={"connector":"connector", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/retrieveconfig/v1"
@@ -7819,7 +7760,7 @@ validation_key | string | Internal IOD validation key.
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/retrieveindexfields/v1"
 
 url="http://api.idolondemand.com/1/api/sync/retrieveindexfields/v1"
@@ -7842,9 +7783,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/retrieveindexfields/v1"
 url="http://api.idolondemand.com/1/api/sync/retrieveindexfields/v1"
@@ -7866,7 +7806,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/retrieveindexfields/v1"
@@ -7936,7 +7876,7 @@ max_values | number | The number of field names to display. Displays maximum 100
 ```python
 import requests
 
-data={"type":"type"}
+data={"type":"type", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/retrievepolicyobjects/v1"
 
 url="http://api.idolondemand.com/1/api/sync/retrievepolicyobjects/v1"
@@ -7959,9 +7899,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={type:"type"}
+data={type:"type", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/retrievepolicyobjects/v1"
 url="http://api.idolondemand.com/1/api/sync/retrievepolicyobjects/v1"
@@ -7983,7 +7922,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"type":"type"}
+data={"type":"type", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/retrievepolicyobjects/v1"
@@ -8060,7 +7999,7 @@ policy_type | Policy Type
 ```python
 import requests
 
-data={"connector":"connector"}
+data={"connector":"connector", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/startconnector/v1"
 
 url="http://api.idolondemand.com/1/api/sync/startconnector/v1"
@@ -8083,9 +8022,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={connector:"connector"}
+data={connector:"connector", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/startconnector/v1"
 url="http://api.idolondemand.com/1/api/sync/startconnector/v1"
@@ -8107,7 +8045,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"connector":"connector"}
+data={"connector":"connector", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/startconnector/v1"
@@ -8177,7 +8115,7 @@ ignore_previous_state | boolean | Set to true to ignore the state of previous co
 ```python
 import requests
 
-data={"connector":"connector"}
+data={"connector":"connector", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/stopconnector/v1"
 
 url="http://api.idolondemand.com/1/api/sync/stopconnector/v1"
@@ -8200,9 +8138,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={connector:"connector"}
+data={connector:"connector", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/stopconnector/v1"
 url="http://api.idolondemand.com/1/api/sync/stopconnector/v1"
@@ -8224,7 +8161,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"connector":"connector"}
+data={"connector":"connector", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/stopconnector/v1"
@@ -8291,7 +8228,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/storeobject/v1"
 
 url="http://api.idolondemand.com/1/api/sync/storeobject/v1"
@@ -8320,9 +8257,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/storeobject/v1"
 url="http://api.idolondemand.com/1/api/sync/storeobject/v1"
@@ -8351,7 +8287,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/storeobject/v1"
@@ -8435,7 +8371,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/tokenizetext/v1"
 
 url="http://api.idolondemand.com/1/api/sync/tokenizetext/v1"
@@ -8464,9 +8400,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/tokenizetext/v1"
 url="http://api.idolondemand.com/1/api/sync/tokenizetext/v1"
@@ -8495,7 +8430,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/tokenizetext/v1"
@@ -8597,7 +8532,7 @@ spa | Spanish
 ```python
 import requests
 
-data={"service_name":"service_name", "prediction_field":"prediction_field"}
+data={"service_name":"service_name", "prediction_field":"prediction_field", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/trainpredictor/v1"
 
 url="http://api.idolondemand.com/1/api/sync/trainpredictor/v1"
@@ -8626,9 +8561,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={service_name:"service_name", prediction_field:"prediction_field"}
+data={service_name:"service_name", prediction_field:"prediction_field", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/trainpredictor/v1"
 url="http://api.idolondemand.com/1/api/sync/trainpredictor/v1"
@@ -8657,7 +8591,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"service_name":"service_name", "prediction_field":"prediction_field"}
+data={"service_name":"service_name", "prediction_field":"prediction_field", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/trainpredictor/v1"
@@ -8745,7 +8679,7 @@ empty_value | string | A value to use to represent an empty value in the data se
 ```python
 import requests
 
-data={"role":"role", "user":"user", "store":"store"}
+data={"role":"role", "user":"user", "store":"store", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/unassignrole/v1"
 
 url="http://api.idolondemand.com/1/api/sync/unassignrole/v1"
@@ -8768,9 +8702,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={role:"role", user:"user", store:"store"}
+data={role:"role", user:"user", store:"store", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/unassignrole/v1"
 url="http://api.idolondemand.com/1/api/sync/unassignrole/v1"
@@ -8792,7 +8725,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"role":"role", "user":"user", "store":"store"}
+data={"role":"role", "user":"user", "store":"store", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/unassignrole/v1"
@@ -8861,7 +8794,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={"type":"type", "id":"id"}
+data={"type":"type", "id":"id", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/updateclassificationobjects/v1"
 
 url="http://api.idolondemand.com/1/api/sync/updateclassificationobjects/v1"
@@ -8884,9 +8817,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={type:"type", id:"id"}
+data={type:"type", id:"id", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/updateclassificationobjects/v1"
 url="http://api.idolondemand.com/1/api/sync/updateclassificationobjects/v1"
@@ -8908,7 +8840,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"type":"type", "id":"id"}
+data={"type":"type", "id":"id", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/updateclassificationobjects/v1"
@@ -8989,7 +8921,7 @@ collection_sequence | Collection Sequence
 ```python
 import requests
 
-data={"connector":"connector"}
+data={"connector":"connector", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/updateconnector/v1"
 
 url="http://api.idolondemand.com/1/api/sync/updateconnector/v1"
@@ -9012,9 +8944,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={connector:"connector"}
+data={connector:"connector", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/updateconnector/v1"
 url="http://api.idolondemand.com/1/api/sync/updateconnector/v1"
@@ -9036,7 +8967,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"connector":"connector"}
+data={"connector":"connector", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/updateconnector/v1"
@@ -9109,7 +9040,7 @@ config | object | The configuration attributes, defined by attributes.json.
 ```python
 import requests
 
-data={"additional":"additional", "type":"type", "id":"id", "name":"name"}
+data={"additional":"additional", "type":"type", "id":"id", "name":"name", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/updatepolicyobjects/v1"
 
 url="http://api.idolondemand.com/1/api/sync/updatepolicyobjects/v1"
@@ -9132,9 +9063,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={additional:"additional", type:"type", id:"id", name:"name"}
+data={additional:"additional", type:"type", id:"id", name:"name", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/updatepolicyobjects/v1"
 url="http://api.idolondemand.com/1/api/sync/updatepolicyobjects/v1"
@@ -9156,7 +9086,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"additional":"additional", "type":"type", "id":"id", "name":"name"}
+data={"additional":"additional", "type":"type", "id":"id", "name":"name", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/updatepolicyobjects/v1"
@@ -9233,7 +9163,7 @@ policy_type | Policy Type
 ```python
 import requests
 
-data={"query_profile":"query_profile", "config":"config"}
+data={"query_profile":"query_profile", "config":"config", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/updatequeryprofile/v1"
 
 url="http://api.idolondemand.com/1/api/sync/updatequeryprofile/v1"
@@ -9256,9 +9186,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={query_profile:"query_profile", config:"config"}
+data={query_profile:"query_profile", config:"config", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/updatequeryprofile/v1"
 url="http://api.idolondemand.com/1/api/sync/updatequeryprofile/v1"
@@ -9280,7 +9209,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"query_profile":"query_profile", "config":"config"}
+data={"query_profile":"query_profile", "config":"config", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/updatequeryprofile/v1"
@@ -9348,7 +9277,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={"token":"token"}
+data={"token":"token", "apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/verify/v1"
 
 url="http://api.idolondemand.com/1/api/sync/verify/v1"
@@ -9371,9 +9300,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={token:"token"}
+data={token:"token", apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/verify/v1"
 url="http://api.idolondemand.com/1/api/sync/verify/v1"
@@ -9395,7 +9323,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={"token":"token"}
+data={"token":"token", "apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/verify/v1"
@@ -9462,7 +9390,7 @@ Parameter | Type | Description
 ```python
 import requests
 
-data={}
+data={"apikey":"apikey"}
 asyncurl="http://api.idolondemand.com/1/api/async/viewdocument/v1"
 
 url="http://api.idolondemand.com/1/api/sync/viewdocument/v1"
@@ -9491,9 +9419,8 @@ resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid]
 require 'httpclient'
 require 'json'
 
-data={}
+data={apikey:"apikey"}
 
-apikey="myapikey"
 clnt = HTTPClient.new
 asyncurl="http://api.idolondemand.com/1/api/async/viewdocument/v1"
 url="http://api.idolondemand.com/1/api/sync/viewdocument/v1"
@@ -9522,7 +9449,7 @@ jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apike
 var needle = require('needle');
 
 
-data={}
+data={"apikey":"apikey"}
 
 
 asyncurl="http://api.idolondemand.com/1/api/async/viewdocument/v1"
