@@ -60,13 +60,20 @@
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<pre><code class="highlight ruby"><span class="n">rubycode</span> <span class="n">here</span>
+<pre><code class="highlight ruby"><span class="nb">require</span> <span class="s1">'httpclient'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">myapikey</span><span class="o">=</span><span class="s2">"&lt;apikey&gt;"</span>
+<span class="n">clnt</span> <span class="o">=</span> <span class="no">HTTPClient</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/async/analyzesentiment/v1?text=I%20like%20cats&amp;apikey="</span><span class="o">+</span><span class="n">myapikey</span>
+<span class="c1">#GET</span>
+<span class="n">resp</span><span class="o">=</span><span class="n">clnt</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 </code></pre>
 <pre><code class="highlight python"><span class="kn">import</span> <span class="nn">requests</span>
-<span class="n">myapikey</span><span class="o">=</span><span class="s">"myapikey!"</span>
+<span class="n">myapikey</span><span class="o">=</span><span class="s">"&lt;apikey&gt;"</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"http://idolondemand.com/api/1/{sync,async}/{apiname}/v1?param1=val1&amp;param2=val2&amp;apikey="</span><span class="o">+</span><span class="n">myapikey</span><span class="p">)</span>
 </code></pre>
-<pre><code class="highlight javascript"><span class="kd">var</span> <span class="nx">myapikey</span><span class="o">=</span><span class="s2">"myapikey!"</span>
+<pre><code class="highlight javascript"><span class="kd">var</span> <span class="nx">myapikey</span><span class="o">=</span><span class="s2">"&lt;apikey&gt;"</span>
 
 <span class="err">#</span><span class="nx">jquery</span>
 
@@ -184,10 +191,7 @@ curl https://api.idolondemand.com/1/job/status/usw3p_3eb5f2a4-3950-4f67-ab58-659
 <pre><code class="highlight ruby"><span class="n">jobid</span><span class="o">=</span><span class="n">body</span><span class="p">[</span><span class="ss">:jobId</span><span class="p">]</span>
 <span class="n">jobresp</span><span class="o">=</span><span class="n">clnt</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">"https://api.idolondemand.com/1/job/status/"</span><span class="o">+</span><span class="n">jobid</span><span class="s2">"?apikey=myapikey"</span><span class="p">)</span>
 </code></pre>
-<pre><code class="highlight python"><span class="kn">import</span> <span class="nn">requests</span>
-<span class="n">url</span><span class="o">=</span><span class="s">"http://api.idolondemand.com/1/api/sync/analyzesentiment/v1?text=I</span><span class="si">%20</span><span class="s">like</span><span class="si">%20</span><span class="s">cats&amp;apikey=apikey"</span>
-<span class="n">bodyobj</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="n">jobid</span><span class="o">=</span><span class="n">bodyobj</span><span class="p">[</span><span class="s">"jobId"</span><span class="p">]</span>
+<pre><code class="highlight python"><span class="n">jobid</span><span class="o">=</span><span class="n">bodyobj</span><span class="p">[</span><span class="s">"jobId"</span><span class="p">]</span>
 <span class="n">resp</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://api.idolondemand.com/1/job/status/"</span><span class="o">+</span><span class="n">jobid</span><span class="o">+</span><span class="s">"?apikey=myapikey"</span><span class="p">)</span>
 
 </code></pre>
@@ -254,6 +258,14 @@ curl -X POST --form <span class="s2">"apikey=&lt;API_KEY&gt;"</span> --form <spa
 <span class="n">data</span><span class="o">=</span> <span class="p">{</span><span class="s">'apikey'</span><span class="p">:</span><span class="n">myapikey</span><span class="p">,</span><span class="s">'mode'</span><span class="p">:</span><span class="s">'document_photo'</span><span class="p">}</span>
 <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://api.idolondemand.com/1/api/async/ocrdocument/v1"</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span><span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre>
+<pre><code class="highlight ruby"><span class="nb">require</span> <span class="s1">'httpclient'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="n">file</span><span class="p">:</span><span class="nb">open</span><span class="p">(</span><span class="s2">"myscan.pdf"</span><span class="p">),</span> <span class="n">mode</span><span class="p">:</span><span class="s2">"document_photo"</span><span class="p">,</span> <span class="n">apikey</span><span class="p">:</span><span class="s2">"apikey"</span><span class="p">}</span>
+<span class="n">clnt</span> <span class="o">=</span> <span class="no">HTTPClient</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">resp</span><span class="o">=</span><span class="n">clnt</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="n">body</span><span class="o">=</span><span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
 </code></pre>
 <pre><code class="highlight javascript"><span class="kd">var</span> <span class="nx">needle</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'needle'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
