@@ -110,7 +110,26 @@ You must replace `mykey!` with your personal API key.
 <p>Let&rsquo;s consider a sentiment analysis example</p>
 
 <h2 id="synchronous">Synchronous</h2>
-<pre><code class="highlight shell">curl <span class="sb">`</span>http://api.idolondemand.com/1/api/sync/analyzesentiment/v1?text<span class="o">=</span>I%20like%20cats&amp;apikey<span class="o">=</span>apikey<span class="sb">`</span>
+<pre><code class="highlight shell">curl http://api.idolondemand.com/1/api/sync/analyzesentiment/v1?text<span class="o">=</span>I%20like%20cats&amp;apikey<span class="o">=</span>apikey
+</code></pre>
+<pre><code class="highlight ruby"><span class="nb">require</span> <span class="s1">'httpclient'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">clnt</span> <span class="o">=</span> <span class="no">HTTPClient</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/sync/analyzesentiment/v1?text=I%20like%20cats&amp;apikey=apikey"</span>
+<span class="c1">#GET</span>
+<span class="n">resp</span><span class="o">=</span><span class="n">clnt</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">body</span><span class="o">=</span><span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre>
+<pre><code class="highlight python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span><span class="o">=</span><span class="s">"http://api.idolondemand.com/1/api/sync/analyzesentiment/v1?text=I</span><span class="si">%20</span><span class="s">like</span><span class="si">%20</span><span class="s">cats&amp;apikey=apikey"</span>
+<span class="n">bodyobj</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre>
+<pre><code class="highlight javascript"><span class="kd">var</span> <span class="nx">needle</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'needle'</span><span class="p">);</span>
+<span class="nx">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/sync/analyzesentiment/v1?text=I%20like%20cats&amp;apikey=apikey"</span>
+<span class="nx">needle</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="s1">'get'</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span>
+<span class="p">});</span>
 </code></pre>
 
 <blockquote>
@@ -132,6 +151,25 @@ You must replace `mykey!` with your personal API key.
 <h2 id="asynchronous">Asynchronous</h2>
 <pre><code class="highlight shell">curl http://api.idolondemand.com/1/api/async/analyzesentiment/v1?text<span class="o">=</span>I%20like%20cats&amp;apikey<span class="o">=</span>apikey
 </code></pre>
+<pre><code class="highlight ruby"><span class="nb">require</span> <span class="s1">'httpclient'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">clnt</span> <span class="o">=</span> <span class="no">HTTPClient</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/async/analyzesentiment/v1?text=I%20like%20cats&amp;apikey=apikey"</span>
+<span class="c1">#GET</span>
+<span class="n">resp</span><span class="o">=</span><span class="n">clnt</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">body</span><span class="o">=</span><span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre>
+<pre><code class="highlight python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span><span class="o">=</span><span class="s">"http://api.idolondemand.com/1/api/async/analyzesentiment/v1?text=I</span><span class="si">%20</span><span class="s">like</span><span class="si">%20</span><span class="s">cats&amp;apikey=apikey"</span>
+<span class="n">bodyobj</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre>
+<pre><code class="highlight javascript"><span class="kd">var</span> <span class="nx">needle</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'needle'</span><span class="p">);</span>
+<span class="nx">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/async/analyzesentiment/v1?text=I%20like%20cats&amp;apikey=apikey"</span>
+<span class="nx">needle</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="s1">'get'</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span>
+<span class="p">});</span>
+</code></pre>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -142,6 +180,25 @@ You must replace `mykey!` with your personal API key.
 </span></code></pre>
 <pre><code class="highlight shell">
 curl https://api.idolondemand.com/1/job/status/usw3p_3eb5f2a4-3950-4f67-ab58-6597e9fe17ca?apikey<span class="o">=</span>myapikey
+</code></pre>
+<pre><code class="highlight ruby"><span class="n">jobid</span><span class="o">=</span><span class="n">body</span><span class="p">[</span><span class="ss">:jobId</span><span class="p">]</span>
+<span class="n">jobresp</span><span class="o">=</span><span class="n">clnt</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">"https://api.idolondemand.com/1/job/status/"</span><span class="o">+</span><span class="n">jobid</span><span class="s2">"?apikey=myapikey"</span><span class="p">)</span>
+</code></pre>
+<pre><code class="highlight python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span><span class="o">=</span><span class="s">"http://api.idolondemand.com/1/api/sync/analyzesentiment/v1?text=I</span><span class="si">%20</span><span class="s">like</span><span class="si">%20</span><span class="s">cats&amp;apikey=apikey"</span>
+<span class="n">bodyobj</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">jobid</span><span class="o">=</span><span class="n">bodyobj</span><span class="p">[</span><span class="s">"jobId"</span><span class="p">]</span>
+<span class="n">resp</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://api.idolondemand.com/1/job/status/"</span><span class="o">+</span><span class="n">jobid</span><span class="o">+</span><span class="s">"?apikey=myapikey"</span><span class="p">)</span>
+
+</code></pre>
+<pre><code class="highlight javascript"><span class="kd">var</span> <span class="nx">needle</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'needle'</span><span class="p">);</span>
+<span class="nx">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/sync/analyzesentiment/v1?text=I%20like%20cats&amp;apikey=apikey"</span>
+<span class="nx">needle</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">jobid</span><span class="o">=</span><span class="nx">body</span><span class="p">.</span><span class="nx">jobId</span>
+  <span class="nx">needle</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"https://api.idolondemand.com/1/job/status/"</span><span class="o">+</span><span class="nx">jobid</span><span class="s2">"?apikey=myapikey"</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">resp</span><span class="p">,</span><span class="nx">body</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">});</span>
 </code></pre>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
   </span><span class="s2">"actions"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
