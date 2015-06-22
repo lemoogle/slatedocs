@@ -1,0 +1,69 @@
+# Guide - Prediction
+
+The prediction functionality of IDOL OnDemand lets you train a predictive model to classify untagged information. The training algorithms runs the training data against a set of algorithms and parameters to identify the configuration that fits our dataset the most, alleviating the data scientist's work.
+
+> CSV input format
+
+```json
+sepal_length,sepal_width,petal_length,petal_width,class
+4.9,3,1.4,0.2,Iris_setosa
+6.9,3.1,5.4,2.1,Iris_virginica
+```
+> JSON input format
+
+```json
+{
+"name": "Iris",
+"fields": [
+  { "name": "sepal length", "columnRef": "sepal length", "type": "DOUBLE"},
+  { "name": "sepal width", "columnRef": "sepal width", "type": "DOUBLE"},
+  { "name": "petal length", "columnRef": "petal length", "type": "DOUBLE"},
+  { "name": "petal width", "columnRef": "petal width", "type": "DOUBLE"},
+  { "name": "class", "columnRef": "class", "type": "RICH_TEXT"}
+],
+"values": [
+  {"row": [ 4.9, 3, 1.4, 0.2, "Iris-setosa"]},
+  {"row": [ 4.4, 2.9, 1.4, 0.2, "Iris-setosa"]}
+]
+}
+```
+
+### Our dataset
+
+For this guide, we'll be using a common classfication dataset, the Iris dataset. The dataset contains features of iris plants and links them with the class of iris each feature set belongs to.
+
+1. sepal length in cm
+2. sepal width in cm
+3. petal length in cm
+4. petal width in cm
+5. class: **Predicted Attribute** - Iris Setosa , Iris Versicolour ,Iris Virginica
+
+## Training our predictor
+
+
+> Sample call for JSON by URL
+
+<%= partial(:'codesnippets/codetemplates',
+:locals => {:api => "trainpredictor", :sync=>"sync", :method=>"GET",
+  :params=>{"url"=>"https://www.idolondemand.com/sample-content/prediction/iris.json","prediction_field"=>"class"}}) %>
+
+> Sample call for JSON by CSV
+
+<%= partial(:'codesnippets/codetemplates',
+:locals => {:api => "trainpredictor", :sync=>"sync", :method=>"GET",
+  :params=>{"url"=>"https://www.idolondemand.com/sample-content/prediction/iris.csv","prediction_field"=>"class"}}) %>
+
+
+The [Train Prediction API](#train-prediction) is the API that allows the training of the model. It can take two types of input CSV or JSON.
+
+The API also takes a **prediction_field** argument, this is the field/column name that we want to predict.
+That field should be present in our training dataset but will be missing or blank when we try to predict it in our next step.
+
+
+Sample training for the iris dataset is provided at the following links:
+
+* [JSON](https://www.idolondemand.com/sample-content/prediction/iris.json)
+* [CSV](https://www.idolondemand.com/sample-content/prediction/iris.csv)
+
+
+## Predicting against our training

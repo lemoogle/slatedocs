@@ -36,7 +36,7 @@ bodyobj = requests.get(url).json()
 ```javascript
 var needle = require('needle');
 url="http://api.idolondemand.com/1/api/sync/analyzesentiment/v1?text=I%20like%20cats&apikey=apikey"
-needle.request('get', url, function(err, resp, body) {
+needle.get( url, function(err, resp, body) {
   console.log(body)
 });
 ```

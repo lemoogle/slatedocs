@@ -1,0 +1,70 @@
+```python
+import requests
+<% case method
+when "GET" %>
+#GET
+data={<% params.each do |param| %>"<%=param[0]%>": "<%=param[1]%>", <% end %> "apikey":"myapikey" }
+bodyobj = requests.get(url,params=data).json()
+<% when "POST" %>
+#POST
+data={<% params.each do |param| %>"<%=param[0]%>": "<%=param[1]%>", <% end %> "apikey":"myapikey" }
+bodyobj = requests.post(url,data=data).json()
+<% when "FILEPOST" %>
+#FILE POST
+data={<% params.each do |param| %><% if param[0]!= "file"%>"<%=param[0]%>": "<%=param[1]%>", <%end%><%end%> "apikey":"myapikey" }
+files={"file":open("<% params.each do |param| %><% if param[0]== "file"%><%=param[1]%><%end%><%end%>","rb")}
+bodyobj = requests.post(url,data=data,files=files).json()
+<% end %>
+```
+
+
+```ruby
+require 'httpclient'
+require 'json'
+clnt = HTTPClient.new
+url="http://api.idolondemand.com/1/api/<%=sync%>/<%= api%>/v1"
+<% case method
+when "GET" %>
+#GET
+data={<% params.each do |param| %><%=param[0]%>: "<%=param[1]%>", <% end %> apikey:"myapikey" }
+resp=clnt.get(url,data)
+<% when "POST" %>
+#POST
+data={<% params.each do |param| %><%=param[0]%>: "<%=param[1]%>", <% end %> apikey:"myapikey" }
+resp=clnt.post(url,data)
+<% when "FILEPOST" %>
+#FILE POST
+data={<% params.each do |param| %><% if param[0]!= "file"%><%=param[0]%>: "<%=param[1]%>", <%else%>"file": open("<%=param[1]%>"),<%end%><% end %> "apikey":"myapikey" }
+resp=clnt.post(url,data)
+<% end %>
+body=JSON.parse(resp.body)
+```
+
+```javascript
+var needle = require('needle');
+var url="http://api.idolondemand.com/1/api/<%=sync%>/<%= api%>/v1"
+<% case method
+when "GET" %>
+//GET
+data={<% params.each do |param| %>"<%=param[0]%>": "<%=param[1]%>", <% end %> apikey:"myapikey" }
+needle.request('get', url, data, function(err, resp, body) {
+  console.log(body)
+});
+<% when "POST" %>
+//POST
+data={<% params.each do |param| %>"<%=param[0]%>": "<%=param[1]%>", <% end %> apikey:"myapikey" }
+needle.post( url, data, function(err, resp, body) {
+  console.log(body)
+});
+<% when "FILEPOST" %>
+//FILE POST
+data={<% params.each do |param| %><% if param[0]!= "file"%>"<%=param[0]%>": "<%=param[1]%>", <%else%>"file": { file: '<%=param[1]%>', content_type: 'multipart/form-data' }, <%end%><%end%>"apikey":"myapikey" }
+needle.post( url, data, function(err, resp, body) {
+  console.log(body)
+});
+<% end %>
+```
+
+```shell
+curl -X POST <% params.each do |param| %>-F "<%=param[0]%>=<%=param[1]%>"<% end %> -F "apikey=myapikey"  https://api.idolondemand.com/1/api/sync/createtextindex/v1
+```

@@ -1,8 +1,12 @@
 # Guide - Indexing
 
+
 Text Indexes in IDOL OnDemand allow the indexing of documents, files, tweets or any other form of unstructured text content. Once indexed that content can be searched through utilizing IDOL's powerful conceptual search capabilities; not only can the content be searched it can be organized, categorized, clustered and linked.
 
 ## Getting Started with Indexing
+<%= partial(:'codesnippets/codetemplates',
+:locals => {:api => "createtextindex", :sync=>"sync", :method=>"GET",
+  :params=>{"index"=>"myindex"}} ) %>
 
 ### Create a Text Index
 
@@ -12,20 +16,42 @@ We will need to specify:
 * An index name
 * An index flavor : flavors are preconfigurations for our indexes, specifying a starting schema and a document limit.
 
+
+<%#=
+
 ```shell
 curl -X POST -F index=myindex -F apikey= xxXXXXxXxxxXXXXXxxxXXXXXxxxxxx  https://api.idolondemand.com/1/api/sync/createtextindex/v1
 ```
 
+```ruby
+require 'httpclient'
+require 'json'
+clnt = HTTPClient.new
+
+data={index:"myindex",apikey:"myapikey"}
+url="http://api.idolondemand.com/1/api/sync/createtextindex/v1"
+resp=clnt.get(url,data)
+body=JSON.parse(resp.body)
+```
+
+```python
+import requests
+data={"index":"myindex","apikey":"myapikey"}
+url="http://api.idolondemand.com/1/api/sync/createtextindex/v1"
+bodyobj = requests.get(url,params=data).json()
+```
+
+```javascript
+var needle = require('needle');
+var data={"index":"myindex","apikey":"myapikey"}
+var url="http://api.idolondemand.com/1/api/sync/createtextindex/v1"
+needle.request('get', url, data, function(err, resp, body) {
+  console.log(body)
+});
+```
+%>
+
 ### Adding documents to an index
-
-After we create an index, we can start populating it with data.
-To do so we use the [Add to Text Index API]().
-The Add to Text Index API supports two types of inputs:
-* files: IDOL OnDemand will automatically extract content and metadata for over 500 file types and index the data. These files can be provided via url or posted to the api directly
-* json: Like a NoSQL database, IDOL OnDemand indexes can index JSON documents.
-
-#### JSON documents
-
 > Required format for json input
 
 ```json
@@ -45,33 +71,154 @@ The Add to Text Index API supports two types of inputs:
    ]
 }
 ```
+
+After we create an index, we can start populating it with data.
+To do so we use the [Add to Text Index API]().
+The Add to Text Index API supports two types of inputs:
+* files: IDOL OnDemand will automatically extract content and metadata for over 500 file types and index the data. These files can be provided via url or posted to the api directly
+* json: Like a NoSQL database, IDOL OnDemand indexes can index JSON documents.
+
+#### JSON documents
+
+
 While the json document format allows any field the following fields are worth noting:
 
 * title and content : these fields are indexed for conceptual retrieval and relation linking.
 * reference: automatically generated if not present, consider this the unique id of the documents indexed
 
 
+<aside class="warning">
+POST request is recommended to avoid very long query parameters
+</aside>
+
+> Adding JSON to a text index
+
+<%= partial(:'codesnippets/codetemplates',
+:locals => {:api => "addtotextindex", :sync=>"sync", :method=>"POST",
+  :params=>{"json"=>'{"document" :[{"title" : "This is my document","reference" : "mydoc1","myfield" : ["a value"],"content" : "A large block of text, which makes up the main body of the document."}]}', "index"=>"myindex"}} ) %>
+    <%#=
 ```shell
 curl -X POST  -F json='{"document" :[{"title" : "This is my document","reference" : "mydoc1","myfield" : ["a value"],"content" : "A large block of text, which makes up the main body of the document."}]}' -F index= myindex -F apikey= xxXXXXxXxxxXXXXXxxxXXXXXxxxxxx "https://api.idolondemand.com/1/api/sync/addtotextindex/v1"
 ```
+
+```ruby
+require 'httpclient'
+require 'json'
+clnt = HTTPClient.new
+data={json:'{"document" :[{"title" : "This is my document","reference" : "mydoc1","myfield" : ["a value"],"content" : "A large block of text, which makes up the main body of the document."}]}', index:"myindex",apikey:"myapikey"}
+url="http://api.idolondemand.com/1/api/sync/addtotextindex/v1"
+resp=clnt.post(url,data)
+body=JSON.parse(resp.body)
+```
+
+```python
+import requests
+data={"json":'{"document" :[{"title" : "This is my document","reference" : "mydoc1","myfield" : ["a value"],"content" : "A large block of text, which makes up the main body of the document."}]}', "index":"myindex","apikey":"myapikey"}
+url="http://api.idolondemand.com/1/api/sync/addtotextindex/v1"
+bodyobj = requests.post(url,data=data).json()
+```
+
+```javascript
+var needle = require('needle');
+var data={"json":'{"document" :[{"title" : "This is my document","reference" : "mydoc1","myfield" : ["a value"],"content" : "A large block of text, which makes up the main body of the document."}]}', "index":"myindex","apikey":"myapikey"};
+var url="http://api.idolondemand.com/1/api/sync/addtotextindex/v1";
+needle.post( url, data, function(err, resp, body) {
+  console.log(body);
+});
+```
+
+%>
 
 #### Files
 
 The API will extract text and metadata from files
 
+> Adding Files to an index
+
+<%= partial(:'codesnippets/codetemplates',
+:locals => {:api => "addtotextindex", :sync=>"sync", :method=>"FILEPOST",
+  :params=>{"file"=>"/home/user/testdata/sample.doc","index"=>"myindex"}} ) %>
+
+  <%#=
 ```shell
 curl –X POST -F file=@/home/user/testdata/sample.doc -F index= myindex -F apikey= xxXXXXxXxxxXXXXXxxxXXXXXxxxxxx "https://api.idolondemand.com/1/api/sync/addtotextindex/v1"
 
 curl –X POST -F url=http://example/example.doc -F index= myindex -F apikey= xxXXXXxXxxxXXXXXxxxXXXXXxxxxxx "https://api.idolondemand.com/1/api/sync/addtotextindex/v1"
 ```
 
+```python
+files = {'file': open('/home/user/testdata/sample.doc', 'rb')}
+data= {'index':'myindex','apikey':myapikey,'mode':'document_photo'}
+requests.post("https://api.idolondemand.com/1/api/async/addtotextindex/v1",data=data,files=files)
+print r.json()
+```
+
+```ruby
+require 'httpclient'
+require 'json'
+
+data={file:open('/home/user/testdata/sample.doc'), index:"myindex", apikey:"apikey"}
+clnt = HTTPClient.new
+resp=clnt.post("https://api.idolondemand.com/1/api/async/addtotextindex/v1", data)
+body=JSON.parse(resp.body)
+```
+
+```javascript
+var needle = require('needle');
+var data = {
+  apikey: myapikey,
+  index: "myindex",
+  file: { file: '/home/user/testdata/sample.doc', content_type: 'multipart/form-data' }
+};
+needle.post('https://api.idolondemand.com/1/api/async/addtotextindex/v1', data, { multipart: true }, function(err, resp, body) {
+  console.log(body);
+  // needle will read the file and include it in the form-data as binary
+});
+```
+%>
+
 ### Querying a Text Index
 
 After you populate your index, you can perform searches to get detailed information about your data. The `Query Text Index` API allows you to perform text searches on your index.
 
+> Querying an index
+
+<%= partial(:'codesnippets/codetemplates',
+:locals => {:api => "addtotextindex", :sync=>"sync", :method=>"GET",
+  :params=>{"text"=>"mysearch","indexes"=>"myindex"}} ) %>
+
+  <%#=
 ```shell
 curl –X POST -F text= myquery -F indexes= myindex -F apikey= xxXXXXxXxxxXXXXXxxxXXXXXxxxxxx -F "https://api.idolondemand.com/1/api/sync/querytextindex/v1"
 ```
+
+
+```ruby
+require 'httpclient'
+require 'json'
+clnt = HTTPClient.new
+data={indexes:["myindex"],text:"mysearch",apikey:"myapikey"}
+url="http://api.idolondemand.com/1/api/sync/querytextindex/v1"
+resp=clnt.get(url,data)
+body=JSON.parse(resp.body)
+```
+
+```python
+import requests
+data={"indexes":["myindex"], "text":"mysearch", "apikey":"myapikey"}
+url="http://api.idolondemand.com/1/api/sync/querytextindex/v1"
+bodyobj = requests.get(url,params=data).json()
+```
+
+```javascript
+var needle = require('needle');
+var data={"indexes":["myindex"], "text":"mysearch", "apikey":"myapikey"};
+var url="http://api.idolondemand.com/1/api/sync/querytextindex/v1";
+needle.request('get', url, data, function(err, resp, body) {
+  console.log(body);
+});
+```
+%>
 
 ## Field Types
 
