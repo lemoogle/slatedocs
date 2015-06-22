@@ -1126,7 +1126,7 @@ Note: If a backend error persists, please raise a support ticket.
 
 <pre><code class="highlight python"><span class="kn">import</span> <span class="nn">requests</span>
 <span class="c">#GET</span>
-<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">"url"</span><span class="p">:</span> <span class="s">"https://www.idolondemand.com/sample-content/prediction/iris.json"</span><span class="p">,</span> <span class="s">"prediction_field"</span><span class="p">:</span> <span class="s">"class"</span><span class="p">,</span>  <span class="s">"apikey"</span><span class="p">:</span><span class="s">"myapikey"</span> <span class="p">}</span>
+<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">"service_name"</span><span class="p">:</span> <span class="s">"irisService"</span><span class="p">,</span> <span class="s">"url"</span><span class="p">:</span> <span class="s">"https://www.idolondemand.com/sample-content/prediction/iris.json"</span><span class="p">,</span> <span class="s">"prediction_field"</span><span class="p">:</span> <span class="s">"class"</span><span class="p">,</span>  <span class="s">"apikey"</span><span class="p">:</span><span class="s">"myapikey"</span> <span class="p">}</span>
 <span class="n">bodyobj</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </code></pre>
 
@@ -1135,7 +1135,7 @@ Note: If a backend error persists, please raise a support ticket.
 <span class="n">clnt</span> <span class="o">=</span> <span class="no">HTTPClient</span><span class="p">.</span><span class="nf">new</span>
 <span class="n">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/sync/trainpredictor/v1"</span>
 <span class="c1">#GET</span>
-<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="ss">url: </span><span class="s2">"https://www.idolondemand.com/sample-content/prediction/iris.json"</span><span class="p">,</span> <span class="ss">prediction_field: </span><span class="s2">"class"</span><span class="p">,</span>  <span class="n">apikey</span><span class="p">:</span><span class="s2">"myapikey"</span> <span class="p">}</span>
+<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="ss">service_name: </span><span class="s2">"irisService"</span><span class="p">,</span> <span class="ss">url: </span><span class="s2">"https://www.idolondemand.com/sample-content/prediction/iris.json"</span><span class="p">,</span> <span class="ss">prediction_field: </span><span class="s2">"class"</span><span class="p">,</span>  <span class="n">apikey</span><span class="p">:</span><span class="s2">"myapikey"</span> <span class="p">}</span>
 <span class="n">resp</span><span class="o">=</span><span class="n">clnt</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
 <span class="n">body</span><span class="o">=</span><span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
 </code></pre>
@@ -1143,13 +1143,13 @@ Note: If a backend error persists, please raise a support ticket.
 <pre><code class="highlight javascript"><span class="kd">var</span> <span class="nx">needle</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'needle'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/sync/trainpredictor/v1"</span>
 <span class="c1">//GET</span>
-<span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://www.idolondemand.com/sample-content/prediction/iris.json"</span><span class="p">,</span> <span class="s2">"prediction_field"</span><span class="p">:</span> <span class="s2">"class"</span><span class="p">,</span>  <span class="na">apikey</span><span class="p">:</span><span class="s2">"myapikey"</span> <span class="p">}</span>
+<span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="s2">"service_name"</span><span class="p">:</span> <span class="s2">"irisService"</span><span class="p">,</span> <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://www.idolondemand.com/sample-content/prediction/iris.json"</span><span class="p">,</span> <span class="s2">"prediction_field"</span><span class="p">:</span> <span class="s2">"class"</span><span class="p">,</span>  <span class="na">apikey</span><span class="p">:</span><span class="s2">"myapikey"</span> <span class="p">}</span>
 <span class="nx">needle</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="s1">'get'</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span>
 <span class="p">});</span>
 </code></pre>
 
-<pre><code class="highlight shell">curl -X POST -F <span class="s2">"url=https://www.idolondemand.com/sample-content/prediction/iris.json"</span>-F <span class="s2">"prediction_field=class"</span> -F <span class="s2">"apikey=myapikey"</span>  https://api.idolondemand.com/1/api/sync/createtextindex/v1
+<pre><code class="highlight shell">curl -X POST -F <span class="s2">"service_name=irisService"</span>-F <span class="s2">"url=https://www.idolondemand.com/sample-content/prediction/iris.json"</span>-F <span class="s2">"prediction_field=class"</span> -F <span class="s2">"apikey=myapikey"</span>  https://api.idolondemand.com/1/api/sync/createtextindex/v1
 </code></pre>
 
 <blockquote>
@@ -1158,7 +1158,7 @@ Note: If a backend error persists, please raise a support ticket.
 
 <pre><code class="highlight python"><span class="kn">import</span> <span class="nn">requests</span>
 <span class="c">#GET</span>
-<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">"url"</span><span class="p">:</span> <span class="s">"https://www.idolondemand.com/sample-content/prediction/iris.csv"</span><span class="p">,</span> <span class="s">"prediction_field"</span><span class="p">:</span> <span class="s">"class"</span><span class="p">,</span>  <span class="s">"apikey"</span><span class="p">:</span><span class="s">"myapikey"</span> <span class="p">}</span>
+<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">"service_name"</span><span class="p">:</span> <span class="s">"irisService"</span><span class="p">,</span> <span class="s">"url"</span><span class="p">:</span> <span class="s">"https://www.idolondemand.com/sample-content/prediction/iris.csv"</span><span class="p">,</span> <span class="s">"prediction_field"</span><span class="p">:</span> <span class="s">"class"</span><span class="p">,</span>  <span class="s">"apikey"</span><span class="p">:</span><span class="s">"myapikey"</span> <span class="p">}</span>
 <span class="n">bodyobj</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </code></pre>
 
@@ -1167,7 +1167,7 @@ Note: If a backend error persists, please raise a support ticket.
 <span class="n">clnt</span> <span class="o">=</span> <span class="no">HTTPClient</span><span class="p">.</span><span class="nf">new</span>
 <span class="n">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/sync/trainpredictor/v1"</span>
 <span class="c1">#GET</span>
-<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="ss">url: </span><span class="s2">"https://www.idolondemand.com/sample-content/prediction/iris.csv"</span><span class="p">,</span> <span class="ss">prediction_field: </span><span class="s2">"class"</span><span class="p">,</span>  <span class="n">apikey</span><span class="p">:</span><span class="s2">"myapikey"</span> <span class="p">}</span>
+<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="ss">service_name: </span><span class="s2">"irisService"</span><span class="p">,</span> <span class="ss">url: </span><span class="s2">"https://www.idolondemand.com/sample-content/prediction/iris.csv"</span><span class="p">,</span> <span class="ss">prediction_field: </span><span class="s2">"class"</span><span class="p">,</span>  <span class="n">apikey</span><span class="p">:</span><span class="s2">"myapikey"</span> <span class="p">}</span>
 <span class="n">resp</span><span class="o">=</span><span class="n">clnt</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
 <span class="n">body</span><span class="o">=</span><span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
 </code></pre>
@@ -1175,13 +1175,13 @@ Note: If a backend error persists, please raise a support ticket.
 <pre><code class="highlight javascript"><span class="kd">var</span> <span class="nx">needle</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'needle'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/sync/trainpredictor/v1"</span>
 <span class="c1">//GET</span>
-<span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://www.idolondemand.com/sample-content/prediction/iris.csv"</span><span class="p">,</span> <span class="s2">"prediction_field"</span><span class="p">:</span> <span class="s2">"class"</span><span class="p">,</span>  <span class="na">apikey</span><span class="p">:</span><span class="s2">"myapikey"</span> <span class="p">}</span>
+<span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="s2">"service_name"</span><span class="p">:</span> <span class="s2">"irisService"</span><span class="p">,</span> <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://www.idolondemand.com/sample-content/prediction/iris.csv"</span><span class="p">,</span> <span class="s2">"prediction_field"</span><span class="p">:</span> <span class="s2">"class"</span><span class="p">,</span>  <span class="na">apikey</span><span class="p">:</span><span class="s2">"myapikey"</span> <span class="p">}</span>
 <span class="nx">needle</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="s1">'get'</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span>
 <span class="p">});</span>
 </code></pre>
 
-<pre><code class="highlight shell">curl -X POST -F <span class="s2">"url=https://www.idolondemand.com/sample-content/prediction/iris.csv"</span>-F <span class="s2">"prediction_field=class"</span> -F <span class="s2">"apikey=myapikey"</span>  https://api.idolondemand.com/1/api/sync/createtextindex/v1
+<pre><code class="highlight shell">curl -X POST -F <span class="s2">"service_name=irisService"</span>-F <span class="s2">"url=https://www.idolondemand.com/sample-content/prediction/iris.csv"</span>-F <span class="s2">"prediction_field=class"</span> -F <span class="s2">"apikey=myapikey"</span>  https://api.idolondemand.com/1/api/sync/createtextindex/v1
 </code></pre>
 
 <p>The <a href="#train-prediction">Train Prediction API</a> is the API that allows the training of the model. It can take two types of input CSV or JSON.</p>
@@ -1196,7 +1196,90 @@ That field should be present in our training dataset but will be missing or blan
 <li><a href="https://www.idolondemand.com/sample-content/prediction/iris.csv">CSV</a></li>
 </ul>
 
-<h2 id="predicting-against-our-training">Predicting against our training</h2>
+<aside class="notice">
+If your training dataset has some untagged rows, use the empty_values parameter to let the API know which values not to include in its training. Default is &ldquo;&rdquo; and -1, but you may have &ldquo;Unknown&rdquo; or &ldquo;tbd&rdquo; in your dataset</aside>
+
+<h2 id="predicting-against-it">Predicting against it</h2>
+
+<p>Now that</p>
+
+<p>Once again sample untagged data is provided at the following links:</p>
+
+<ul>
+<li><a href="https://www.idolondemand.com/sample-content/prediction/iris.json">JSON</a></li>
+<li><a href="https://www.idolondemand.com/sample-content/prediction/iris_nospecies.csv">CSV</a></li>
+</ul>
+
+<p>The format is the exact same, however the value in the field with predicting against does not matter as it won&rsquo;t be taken into account.
+<aside class="warning">
+The API will still expect a column for the field you&rsquo;re predicting, even if it&rsquo;s empty, so make sure it&rsquo;s there!</aside></p>
+
+<p>The <code class="prettyprint">format</code> parameter lets us specify the output, the API can return JSON or CSV.
+The Result column will be added containing the prediction field&rsquo;s predicted value.</p>
+
+<blockquote>
+<p>Sample call with JSON input returning tagged CSV.</p>
+</blockquote>
+
+<pre><code class="highlight python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="c">#GET</span>
+<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">"service_name"</span><span class="p">:</span> <span class="s">"irisService"</span><span class="p">,</span> <span class="s">"url"</span><span class="p">:</span> <span class="s">"https://www.idolondemand.com/sample-content/prediction/iris.json"</span><span class="p">,</span> <span class="s">"prediction_field"</span><span class="p">:</span> <span class="s">"class"</span><span class="p">,</span> <span class="s">"format"</span><span class="p">:</span> <span class="s">"csv"</span><span class="p">,</span>  <span class="s">"apikey"</span><span class="p">:</span><span class="s">"myapikey"</span> <span class="p">}</span>
+<span class="n">bodyobj</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre>
+
+<pre><code class="highlight ruby"><span class="nb">require</span> <span class="s1">'httpclient'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+<span class="n">clnt</span> <span class="o">=</span> <span class="no">HTTPClient</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/sync/trainpredictor/v1"</span>
+<span class="c1">#GET</span>
+<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="ss">service_name: </span><span class="s2">"irisService"</span><span class="p">,</span> <span class="ss">url: </span><span class="s2">"https://www.idolondemand.com/sample-content/prediction/iris.json"</span><span class="p">,</span> <span class="ss">prediction_field: </span><span class="s2">"class"</span><span class="p">,</span> <span class="ss">format: </span><span class="s2">"csv"</span><span class="p">,</span>  <span class="n">apikey</span><span class="p">:</span><span class="s2">"myapikey"</span> <span class="p">}</span>
+<span class="n">resp</span><span class="o">=</span><span class="n">clnt</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
+<span class="n">body</span><span class="o">=</span><span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre>
+
+<pre><code class="highlight javascript"><span class="kd">var</span> <span class="nx">needle</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'needle'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/sync/trainpredictor/v1"</span>
+<span class="c1">//GET</span>
+<span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="s2">"service_name"</span><span class="p">:</span> <span class="s2">"irisService"</span><span class="p">,</span> <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://www.idolondemand.com/sample-content/prediction/iris.json"</span><span class="p">,</span> <span class="s2">"prediction_field"</span><span class="p">:</span> <span class="s2">"class"</span><span class="p">,</span> <span class="s2">"format"</span><span class="p">:</span> <span class="s2">"csv"</span><span class="p">,</span>  <span class="na">apikey</span><span class="p">:</span><span class="s2">"myapikey"</span> <span class="p">}</span>
+<span class="nx">needle</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="s1">'get'</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span>
+<span class="p">});</span>
+</code></pre>
+
+<pre><code class="highlight shell">curl -X POST -F <span class="s2">"service_name=irisService"</span>-F <span class="s2">"url=https://www.idolondemand.com/sample-content/prediction/iris.json"</span>-F <span class="s2">"prediction_field=class"</span>-F <span class="s2">"format=csv"</span> -F <span class="s2">"apikey=myapikey"</span>  https://api.idolondemand.com/1/api/sync/createtextindex/v1
+</code></pre>
+
+<blockquote>
+<p>Sample call with CSV input returning tagged CSV</p>
+</blockquote>
+
+<pre><code class="highlight python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="c">#GET</span>
+<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">"service_name"</span><span class="p">:</span> <span class="s">"irisService"</span><span class="p">,</span> <span class="s">"url"</span><span class="p">:</span> <span class="s">"https://www.idolondemand.com/sample-content/prediction/iris_nospecies.csv"</span><span class="p">,</span> <span class="s">"prediction_field"</span><span class="p">:</span> <span class="s">"class"</span><span class="p">,</span> <span class="s">"format"</span><span class="p">:</span> <span class="s">"csv"</span><span class="p">,</span>  <span class="s">"apikey"</span><span class="p">:</span><span class="s">"myapikey"</span> <span class="p">}</span>
+<span class="n">bodyobj</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre>
+
+<pre><code class="highlight ruby"><span class="nb">require</span> <span class="s1">'httpclient'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+<span class="n">clnt</span> <span class="o">=</span> <span class="no">HTTPClient</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/sync/trainpredictor/v1"</span>
+<span class="c1">#GET</span>
+<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="ss">service_name: </span><span class="s2">"irisService"</span><span class="p">,</span> <span class="ss">url: </span><span class="s2">"https://www.idolondemand.com/sample-content/prediction/iris_nospecies.csv"</span><span class="p">,</span> <span class="ss">prediction_field: </span><span class="s2">"class"</span><span class="p">,</span> <span class="ss">format: </span><span class="s2">"csv"</span><span class="p">,</span>  <span class="n">apikey</span><span class="p">:</span><span class="s2">"myapikey"</span> <span class="p">}</span>
+<span class="n">resp</span><span class="o">=</span><span class="n">clnt</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
+<span class="n">body</span><span class="o">=</span><span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre>
+
+<pre><code class="highlight javascript"><span class="kd">var</span> <span class="nx">needle</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'needle'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/sync/trainpredictor/v1"</span>
+<span class="c1">//GET</span>
+<span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="s2">"service_name"</span><span class="p">:</span> <span class="s2">"irisService"</span><span class="p">,</span> <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://www.idolondemand.com/sample-content/prediction/iris_nospecies.csv"</span><span class="p">,</span> <span class="s2">"prediction_field"</span><span class="p">:</span> <span class="s2">"class"</span><span class="p">,</span> <span class="s2">"format"</span><span class="p">:</span> <span class="s2">"csv"</span><span class="p">,</span>  <span class="na">apikey</span><span class="p">:</span><span class="s2">"myapikey"</span> <span class="p">}</span>
+<span class="nx">needle</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="s1">'get'</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span>
+<span class="p">});</span>
+</code></pre>
+
+<pre><code class="highlight shell">curl -X POST -F <span class="s2">"service_name=irisService"</span>-F <span class="s2">"url=https://www.idolondemand.com/sample-content/prediction/iris_nospecies.csv"</span>-F <span class="s2">"prediction_field=class"</span>-F <span class="s2">"format=csv"</span> -F <span class="s2">"apikey=myapikey"</span>  https://api.idolondemand.com/1/api/sync/createtextindex/v1
+</code></pre>
 
           <h1 id="guide---indexing">Guide - Indexing</h1>
 
