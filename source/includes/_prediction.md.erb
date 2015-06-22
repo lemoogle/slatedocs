@@ -45,13 +45,13 @@ For this guide, we'll be using a common classfication dataset, the Iris dataset.
 
 <%= partial(:'codesnippets/codetemplates',
 :locals => {:api => "trainpredictor", :sync=>"sync", :method=>"GET",
-  :params=>{"url"=>"https://www.idolondemand.com/sample-content/prediction/iris.json","prediction_field"=>"class"}}) %>
+  :params=>{"service_name"=>"irisService","url"=>"https://www.idolondemand.com/sample-content/prediction/iris.json","prediction_field"=>"class"}}) %>
 
 > Sample call for JSON by CSV
 
 <%= partial(:'codesnippets/codetemplates',
 :locals => {:api => "trainpredictor", :sync=>"sync", :method=>"GET",
-  :params=>{"url"=>"https://www.idolondemand.com/sample-content/prediction/iris.csv","prediction_field"=>"class"}}) %>
+  :params=>{"service_name"=>"irisService", "url"=>"https://www.idolondemand.com/sample-content/prediction/iris.csv","prediction_field"=>"class"}}) %>
 
 
 The [Train Prediction API](#train-prediction) is the API that allows the training of the model. It can take two types of input CSV or JSON.
@@ -59,11 +59,38 @@ The [Train Prediction API](#train-prediction) is the API that allows the trainin
 The API also takes a **prediction_field** argument, this is the field/column name that we want to predict.
 That field should be present in our training dataset but will be missing or blank when we try to predict it in our next step.
 
-
 Sample training for the iris dataset is provided at the following links:
 
 * [JSON](https://www.idolondemand.com/sample-content/prediction/iris.json)
 * [CSV](https://www.idolondemand.com/sample-content/prediction/iris.csv)
 
+<aside class="notice">
+If your training dataset has some untagged rows, use the empty_values parameter to let the API know which values not to include in its training. Default is "" and -1, but you may have "Unknown" or "tbd" in your dataset</aside>
 
-## Predicting against our training
+## Predicting against it
+
+Now that
+
+Once again sample untagged data is provided at the following links:
+
+* [JSON](https://www.idolondemand.com/sample-content/prediction/iris.json)
+* [CSV](https://www.idolondemand.com/sample-content/prediction/iris_nospecies.csv)
+
+The format is the exact same, however the value in the field with predicting against does not matter as it won't be taken into account.
+<aside class="warning">
+The API will still expect a column for the field you're predicting, even if it's empty, so make sure it's there!</aside>
+
+The `format` parameter lets us specify the output, the API can return JSON or CSV.
+The Result column will be added containing the prediction field's predicted value.
+
+> Sample call with JSON input returning tagged CSV.
+
+<%= partial(:'codesnippets/codetemplates',
+:locals => {:api => "trainpredictor", :sync=>"sync", :method=>"GET",
+  :params=>{"service_name"=>"irisService","url"=>"https://www.idolondemand.com/sample-content/prediction/iris.json","prediction_field"=>"class", "format"=>"csv"}}) %>
+
+> Sample call with CSV input returning tagged CSV
+
+<%= partial(:'codesnippets/codetemplates',
+:locals => {:api => "trainpredictor", :sync=>"sync", :method=>"GET",
+  :params=>{"service_name"=>"irisService","url"=>"https://www.idolondemand.com/sample-content/prediction/iris_nospecies.csv","prediction_field"=>"class", "format"=>"csv"}}) %>
