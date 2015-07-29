@@ -1,0 +1,135 @@
+# Web Cloud Connector
+
+Connectors are a very useful feature of IDOL OnDemand, allowing the ingestion of documents from various sources into IDOL Ondemand Text Indexes.
+
+The Web Cloud Connector enables the indexing of a remote site, without the requirement to run a crawler, letting IDOL OnDemand do all the work.
+
+## Creating the connector
+
+
+<%= partial(:'codesnippets/codetemplates',
+:locals => {:api => "createconnector", :sync=>"sync", :method=>"POST",
+  :params=>{"connector"=>"idolondemand", "flavor"=>"web_cloud", "config"=>'{ "url" : "http://www.idolondemand.com" }',"destination"=>'{ "action" : "addtotextindex", "index" : "iodsite" }' }} ) %>
+
+
+The first API we'll want to call is the [Create Connector API](https://www.idolondemand.com/developer/apis/createconnector). Calling it will create a connector of the type of our choice.
+
+The required parameters are as follow:
+
+* **connector** : The name of our connector, which we'll use for further updating, status checking or deletion.
+* **flavor** : This is where we want to specify which type of connector we want to use. In the case of the Web cloud connector the value will need to be **web_cloud**
+* **config** : This json parameter will contain configuration relevant to the type of connector we have selected.
+* **destination** : This json parameter will specify what should be done with the output of the connector. Currently that would be which index we want to index into.
+
+
+The code on the right will create a Web Cloud connector to follow links from idolondemand.com and index every page it finds into the "iodsite" index.
+
+## Operating the connector
+
+> Starting the connector
+
+<%= partial(:'codesnippets/codetemplates',
+:locals => {:api => "startconnector", :sync=>"sync", :method=>"POST",
+  :params=>{"connector"=>"idolondemand"}} ) %>
+
+The [Start Connector API](https://www.idolondemand.com/developer/apis/startconnector) takes a connector name and will start a craw.
+
+Identically the [Stop Connector API](https://www.idolondemand.com/developer/apis/stopconnector) can stop a run.
+
+
+> Checking the status of the connector
+
+<%= partial(:'codesnippets/codetemplates',
+:locals => {:api => "connectorstatus", :sync=>"sync", :method=>"POST",
+  :params=>{"connector"=>"idolondemand"}} ) %>
+
+We can check whether a connector is running using the connectorstatus api.
+
+> Sample output of the connector status api
+
+```json
+{
+  "connector": "idolondemand",
+  "status": "PROCESSING",
+  "token": "MTI3LjAuMS4xOjcyMDA6RkVUQ0g6LTEzMjcwNTE0NTU=",
+  "queued_time": "24/04/2015 17:11:05 +00:00",
+  "time_in_queue": 0,
+  "process_start_time": "24/04/2015 17:11:05 +00:00",
+  "time_processing": 0,
+  "document_counts": {}
+}
+```
+
+**Starting from scratch**
+
+> Ignoring previous runs
+
+<%= partial(:'codesnippets/codetemplates',
+:locals => {:api => "startconnector", :sync=>"sync", :method=>"POST",
+  :params=>{"connector"=>"idolondemand" , "ignore_previous_state" => "True"}} ) %>
+
+Using the `ignore_previous_state` parameter, the connector will only crawl and index new/modified pages by default, however the `ignore_previous_state` parameter will force the connector to ignore previous runs and act like it would on a first run.
+
+
+## Configuring
+
+> **Setting limits**
+
+```json
+"max_pages": 40
+"duration": 300,
+"depth":3
+```
+
+>**Controlling which pages are indexed**
+
+
+```json
+"url_cant_have_regex": ".*\\.php$",
+"url_must_have_regex": ".*\\.html$",
+```
+
+>The `url_cant_have_regex` and `url_must_have_regex` allow you to specify regexes for which pages to index and which pages not to index.
+
+```json
+"max_links_per_page": 1000,
+```
+> `max_links_per_page` lets us choose not to index pages with too many links, avoiding Table of Contents or Sitemaps for example.
+
+```json
+"min_page_size": 4096,
+"max_page_size": 30000000,
+```
+
+> `min_page_size` and `max_page_size` lets us set in bytes restictions on the sizes of the pages to index.
+
+In our previous connector creation we just pointed the connector to the idolondemand.com page, there are however a few things we may want to add to our configuration.
+
+
+## Updating
+
+
+<%= partial(:'codesnippets/codetemplates',
+:locals => {:api => "retrieveconfig", :sync=>"sync", :method=>"POST",
+  :params=>{"connector"=>"idolondemand" }} ) %>
+
+  > Updating the configuration
+
+  <%= partial(:'codesnippets/codetemplates',
+  :locals => {:api => "updateconnector", :sync=>"sync", :method=>"POST",
+    :params=>{"connector"=>"idolondemand" , "config" => "<newconfig>"}} ) %>
+
+  >Updating the destination or the scheduling
+
+  <%= partial(:'codesnippets/codetemplates',
+  :locals => {:api => "startconnector", :sync=>"sync", :method=>"POST",
+    :params=>{"connector"=>"idolondemand" , "schedule"=>"<newschedule>", "destination"=>"<newdestination>"}} ) %>
+
+
+Once we have created a connector, we may want to change the configuration.
+
+The [Retrieve Config API](https://www.idolondemand.com/developer/apis/retrieveconfig) takes a connector name and will return its config.
+
+Once we have checked the config we can decide to change it.
+
+The [Update Connector API](https://www.idolondemand.com/developer/apis/updateconnector) lets us take an existing connector and change its configuration.

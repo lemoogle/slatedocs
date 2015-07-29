@@ -18,8 +18,7 @@ includes:
   - files
   - errors
   - libraries
-  - prediction
-  - search
+  - guides
   - reference
 
 
