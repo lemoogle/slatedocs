@@ -425,7 +425,7 @@ POST request is recommended to avoid very long query parameters
 </blockquote>
 
 <pre><code class="highlight python"><span class="kn">import</span> <span class="nn">requests</span>
-<span class="n">url</span><span class="o">=</span><span class="s">"http://api.idolondemand.com/1/api/sync/addtotextindex/v1"</span>
+<span class="n">url</span><span class="o">=</span><span class="s">"http://api.idolondemand.com/1/api/sync/querytextindex/v1"</span>
 <span class="c">#GET</span>
 <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">"text"</span><span class="p">:</span> <span class="s">"mysearch"</span><span class="p">,</span> <span class="s">"indexes"</span><span class="p">:</span> <span class="s">"myindex"</span><span class="p">,</span>  <span class="s">"apikey"</span><span class="p">:</span><span class="s">"myapikey"</span> <span class="p">}</span>
 <span class="n">bodyobj</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
@@ -434,7 +434,7 @@ POST request is recommended to avoid very long query parameters
 <pre><code class="highlight ruby"><span class="nb">require</span> <span class="s1">'httpclient'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
 <span class="n">clnt</span> <span class="o">=</span> <span class="no">HTTPClient</span><span class="p">.</span><span class="nf">new</span>
-<span class="n">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/sync/addtotextindex/v1"</span>
+<span class="n">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/sync/querytextindex/v1"</span>
 <span class="c1">#GET</span>
 <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="ss">text: </span><span class="s2">"mysearch"</span><span class="p">,</span> <span class="ss">indexes: </span><span class="s2">"myindex"</span><span class="p">,</span>  <span class="n">apikey</span><span class="p">:</span><span class="s2">"myapikey"</span> <span class="p">}</span>
 <span class="n">resp</span><span class="o">=</span><span class="n">clnt</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
@@ -442,7 +442,7 @@ POST request is recommended to avoid very long query parameters
 </code></pre>
 
 <pre><code class="highlight javascript"><span class="kd">var</span> <span class="nx">needle</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'needle'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/sync/addtotextindex/v1"</span>
+<span class="kd">var</span> <span class="nx">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/sync/querytextindex/v1"</span>
 <span class="c1">//GET</span>
 <span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="s2">"text"</span><span class="p">:</span> <span class="s2">"mysearch"</span><span class="p">,</span> <span class="s2">"indexes"</span><span class="p">:</span> <span class="s2">"myindex"</span><span class="p">,</span>  <span class="na">apikey</span><span class="p">:</span><span class="s2">"myapikey"</span> <span class="p">}</span>
 <span class="nx">needle</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="s1">'get'</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
@@ -833,6 +833,183 @@ POST request is recommended to avoid very long query parameters
 <p>Once we have checked the config we can decide to change it.</p>
 
 <p>The <a href="https://www.idolondemand.com/developer/apis/updateconnector">Update Connector API</a> lets us take an existing connector and change its configuration.</p>
+
+          <h1 id="promoting-search-results">Promoting search results</h1>
+
+<p>When building your search functionality, sometimes you want to ensure certain results are always returned when searching for some terms.
+This is something we call &ldquo;Promotions&rdquo;.</p>
+
+<h2 id="create-a-query-profile-index">Create a Query Profile Index</h2>
+
+<pre><code class="highlight python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span><span class="o">=</span><span class="s">"http://api.idolondemand.com/1/api/sync/createtextindex/v1"</span>
+<span class="c">#GET</span>
+<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">"index"</span><span class="p">:</span> <span class="s">"sports"</span><span class="p">,</span> <span class="s">"flavor"</span><span class="p">:</span> <span class="s">"querymanipulation"</span><span class="p">,</span>  <span class="s">"apikey"</span><span class="p">:</span><span class="s">"myapikey"</span> <span class="p">}</span>
+<span class="n">bodyobj</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre>
+
+<pre><code class="highlight ruby"><span class="nb">require</span> <span class="s1">'httpclient'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+<span class="n">clnt</span> <span class="o">=</span> <span class="no">HTTPClient</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/sync/createtextindex/v1"</span>
+<span class="c1">#GET</span>
+<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="ss">index: </span><span class="s2">"sports"</span><span class="p">,</span> <span class="ss">flavor: </span><span class="s2">"querymanipulation"</span><span class="p">,</span>  <span class="n">apikey</span><span class="p">:</span><span class="s2">"myapikey"</span> <span class="p">}</span>
+<span class="n">resp</span><span class="o">=</span><span class="n">clnt</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
+<span class="n">body</span><span class="o">=</span><span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre>
+
+<pre><code class="highlight javascript"><span class="kd">var</span> <span class="nx">needle</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'needle'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/sync/createtextindex/v1"</span>
+<span class="c1">//GET</span>
+<span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="s2">"index"</span><span class="p">:</span> <span class="s2">"sports"</span><span class="p">,</span> <span class="s2">"flavor"</span><span class="p">:</span> <span class="s2">"querymanipulation"</span><span class="p">,</span>  <span class="na">apikey</span><span class="p">:</span><span class="s2">"myapikey"</span> <span class="p">}</span>
+<span class="nx">needle</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="s1">'get'</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span>
+<span class="p">});</span>
+</code></pre>
+
+<pre><code class="highlight shell">curl -X POST -F <span class="s2">"index=sports"</span>-F <span class="s2">"flavor=querymanipulation"</span> -F <span class="s2">"apikey=myapikey"</span>  https://api.idolondemand.com/1/api/sync/createtextindex/v1
+</code></pre>
+
+<p>The first thing you&rsquo;ll want to do is to create a Text Index with the flavor querymanipulation. That text index is where we&rsquo;ll be able to configure which documents should show up when.
+Here we&rsquo;ll want to manipulate searches about sports.</p>
+
+<h2 id="add-promotion-documents-to-the-index">Add promotion documents to the index</h2>
+
+<p>Now that we have our querymanipulation index we can create documents that will be returned when we search for something.</p>
+<pre><code class="highlight json"><span class="p">{</span><span class="w">
+            </span><span class="s2">"document"</span><span class="p">:[{</span><span class="w">
+                           </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"beckham"</span><span class="p">,</span><span class="w">
+                           </span><span class="s2">"category"</span><span class="p">:</span><span class="s2">"people"</span><span class="p">,</span><span class="w">
+                           </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"Promotion"</span><span class="p">,</span><span class="w">
+                           </span><span class="s2">"content"</span><span class="p">:</span><span class="s2">"football"</span><span class="p">,</span><span class="w">
+                           </span><span class="s2">"STATIC_REFERENCE"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://en.wikipedia.org/wiki/David Beckham"</span><span class="p">,</span><span class="w">
+                           </span><span class="s2">"STATIC_TITLE"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Beck Promotion"</span><span class="p">,</span><span class="w">
+                           </span><span class="s2">"STATIC_CONTENT"</span><span class="p">:</span><span class="s2">"This is my Beck promotion"</span><span class="w">
+            </span><span class="p">}]</span><span class="w">
+
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<pre><code class="highlight python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span><span class="o">=</span><span class="s">"http://api.idolondemand.com/1/api/sync/addtotextindex/v1"</span>
+<span class="c">#POST</span>
+<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">"json"</span><span class="p">:</span> <span class="s">" { "</span><span class="n">document</span><span class="s">":[{ "</span><span class="n">reference</span><span class="s">": "</span><span class="n">beckham</span><span class="s">", "</span><span class="n">category</span><span class="s">":"</span><span class="n">people</span><span class="s">", "</span><span class="nb">type</span><span class="s">":"</span><span class="n">Promotion</span><span class="s">", "</span><span class="n">content</span><span class="s">":"</span><span class="n">football</span><span class="s">", "</span><span class="n">STATIC_REFERENCE</span><span class="s">": "</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">en</span><span class="o">.</span><span class="n">wikipedia</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">wiki</span><span class="o">/</span><span class="n">David</span> <span class="n">Beckham</span><span class="s">", "</span><span class="n">STATIC_TITLE</span><span class="s">": "</span><span class="n">My</span> <span class="n">Beck</span> <span class="n">Promotion</span><span class="s">", "</span><span class="n">STATIC_CONTENT</span><span class="s">":"</span><span class="n">This</span> <span class="ow">is</span> <span class="n">my</span> <span class="n">Beck</span> <span class="n">promotion</span><span class="s">" }] } "</span><span class="p">,</span> <span class="s">"index"</span><span class="p">:</span> <span class="s">"sports"</span><span class="p">,</span>  <span class="s">"apikey"</span><span class="p">:</span><span class="s">"myapikey"</span> <span class="p">}</span>
+<span class="n">bodyobj</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre>
+
+<pre><code class="highlight ruby"><span class="nb">require</span> <span class="s1">'httpclient'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+<span class="n">clnt</span> <span class="o">=</span> <span class="no">HTTPClient</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/sync/addtotextindex/v1"</span>
+<span class="c1">#POST</span>
+<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="ss">json: </span><span class="s2">" { "</span><span class="n">document</span><span class="s2">":[{ "</span><span class="n">reference</span><span class="s2">": "</span><span class="n">beckham</span><span class="s2">", "</span><span class="n">category</span><span class="s2">":"</span><span class="n">people</span><span class="s2">", "</span><span class="n">type</span><span class="s2">":"</span><span class="no">Promotion</span><span class="s2">", "</span><span class="n">content</span><span class="s2">":"</span><span class="n">football</span><span class="s2">", "</span><span class="no">STATIC_REFERENCE</span><span class="s2">": "</span><span class="n">http</span><span class="p">:</span><span class="sr">//en</span><span class="p">.</span><span class="nf">wikipedia</span><span class="p">.</span><span class="nf">org</span><span class="sr">/wiki/</span><span class="no">David</span> <span class="no">Beckham</span><span class="s2">", "</span><span class="no">STATIC_TITLE</span><span class="s2">": "</span><span class="no">My</span> <span class="no">Beck</span> <span class="no">Promotion</span><span class="s2">", "</span><span class="no">STATIC_CONTENT</span><span class="s2">":"</span><span class="no">This</span> <span class="n">is</span> <span class="n">my</span> <span class="no">Beck</span> <span class="n">promotion</span><span class="s2">" }] } "</span><span class="p">,</span> <span class="ss">index: </span><span class="s2">"sports"</span><span class="p">,</span>  <span class="n">apikey</span><span class="p">:</span><span class="s2">"myapikey"</span> <span class="p">}</span>
+<span class="n">resp</span><span class="o">=</span><span class="n">clnt</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
+<span class="n">body</span><span class="o">=</span><span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre>
+
+<pre><code class="highlight javascript"><span class="kd">var</span> <span class="nx">needle</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'needle'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/sync/addtotextindex/v1"</span>
+<span class="c1">//POST</span>
+<span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="s2">"json"</span><span class="p">:</span> <span class="s2">" { "</span><span class="nb">document</span><span class="s2">":[{ "</span><span class="nx">reference</span><span class="s2">": "</span><span class="nx">beckham</span><span class="s2">", "</span><span class="nx">category</span><span class="s2">":"</span><span class="nx">people</span><span class="s2">", "</span><span class="nx">type</span><span class="s2">":"</span><span class="nx">Promotion</span><span class="s2">", "</span><span class="nx">content</span><span class="s2">":"</span><span class="nx">football</span><span class="s2">", "</span><span class="nx">STATIC_REFERENCE</span><span class="s2">": "</span><span class="na">http</span><span class="p">:</span><span class="c1">//en.wikipedia.org/wiki/David Beckham", "STATIC_TITLE": "My Beck Promotion", "STATIC_CONTENT":"This is my Beck promotion" }] } ", "index": "sports",  apikey:"myapikey" }</span>
+<span class="nx">needle</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span>
+<span class="p">});</span>
+</code></pre>
+
+<pre><code class="highlight shell">curl -X POST -F <span class="s2">"json= { "</span>document<span class="s2">":[{ "</span>reference<span class="s2">": "</span>beckham<span class="s2">", "</span>category<span class="s2">":"</span>people<span class="s2">", "</span><span class="nb">type</span><span class="s2">":"</span>Promotion<span class="s2">", "</span>content<span class="s2">":"</span>football<span class="s2">", "</span>STATIC_REFERENCE<span class="s2">": "</span>http://en.wikipedia.org/wiki/David Beckham<span class="s2">", "</span>STATIC_TITLE<span class="s2">": "</span>My Beck Promotion<span class="s2">", "</span>STATIC_CONTENT<span class="s2">":"</span>This is my Beck promotion<span class="s2">" }] } "</span>-F <span class="s2">"index=sports"</span> -F <span class="s2">"apikey=myapikey"</span>  https://api.idolondemand.com/1/api/sync/createtextindex/v1
+</code></pre>
+
+<p>Adding documents to this index is the same as adding documents to any index, it will expect json documents with a reference field, title and content fields.
+The difference here is that the content field should contain the terms that when searched for will always return the document we want to promote. THat promoted document is defined using fields named STATIC_FIELDNAME, such as STATIC_REFERENCE or STATIC_TITLE.</p>
+
+<h2 id="creating-our-query-profile">Creating our query profile</h2>
+
+<p>Now that we&rsquo;ve created our querymanipulation index, we can create a Query Profile associated to it, we will then call that Query Profile when doing our Query Text Index query.</p>
+<pre><code class="highlight json"><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"querymanipulationindex"</span><span class="p">:</span><span class="s2">"sports"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"promotions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">,</span><span class="w">
+               </span><span class="s2">"every_page"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">,</span><span class="w">
+               </span><span class="s2">"identified"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">,</span><span class="w">
+               </span><span class="s2">"categories"</span><span class="p">:[</span><span class="s2">"people"</span><span class="p">]}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<pre><code class="highlight python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span><span class="o">=</span><span class="s">"http://api.idolondemand.com/1/api/sync/createqueryprofile/v1"</span>
+<span class="c">#GET</span>
+<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">"query_profile"</span><span class="p">:</span> <span class="s">"sports_profile"</span><span class="p">,</span> <span class="s">"json"</span><span class="p">:</span> <span class="s">" { "</span><span class="n">querymanipulationindex</span><span class="s">":"</span><span class="n">sports</span><span class="s">", "</span><span class="n">promotions</span><span class="s">": { "</span><span class="n">enabled</span><span class="s">": true , "</span><span class="n">every_page</span><span class="s">": true , "</span><span class="n">identified</span><span class="s">": true , "</span><span class="n">categories</span><span class="s">":["</span><span class="n">people</span><span class="s">"]} }"</span><span class="p">,</span>  <span class="s">"apikey"</span><span class="p">:</span><span class="s">"myapikey"</span> <span class="p">}</span>
+<span class="n">bodyobj</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre>
+
+<pre><code class="highlight ruby"><span class="nb">require</span> <span class="s1">'httpclient'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+<span class="n">clnt</span> <span class="o">=</span> <span class="no">HTTPClient</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/sync/createqueryprofile/v1"</span>
+<span class="c1">#GET</span>
+<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="ss">query_profile: </span><span class="s2">"sports_profile"</span><span class="p">,</span> <span class="ss">json: </span><span class="s2">" { "</span><span class="n">querymanipulationindex</span><span class="s2">":"</span><span class="n">sports</span><span class="s2">", "</span><span class="n">promotions</span><span class="s2">": { "</span><span class="n">enabled</span><span class="s2">": true , "</span><span class="n">every_page</span><span class="s2">": true , "</span><span class="n">identified</span><span class="s2">": true , "</span><span class="n">categories</span><span class="s2">":["</span><span class="n">people</span><span class="s2">"]} }"</span><span class="p">,</span>  <span class="n">apikey</span><span class="p">:</span><span class="s2">"myapikey"</span> <span class="p">}</span>
+<span class="n">resp</span><span class="o">=</span><span class="n">clnt</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
+<span class="n">body</span><span class="o">=</span><span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre>
+
+<pre><code class="highlight javascript"><span class="kd">var</span> <span class="nx">needle</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'needle'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">url</span><span class="o">=</span><span class="s2">"http://api.idolondemand.com/1/api/sync/createqueryprofile/v1"</span>
+<span class="c1">//GET</span>
+<span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="s2">"query_profile"</span><span class="p">:</span> <span class="s2">"sports_profile"</span><span class="p">,</span> <span class="s2">"json"</span><span class="p">:</span> <span class="s2">" { "</span><span class="nx">querymanipulationindex</span><span class="s2">":"</span><span class="nx">sports</span><span class="s2">", "</span><span class="nx">promotions</span><span class="s2">": { "</span><span class="nx">enabled</span><span class="s2">": true , "</span><span class="nx">every_page</span><span class="s2">": true , "</span><span class="nx">identified</span><span class="s2">": true , "</span><span class="nx">categories</span><span class="s2">":["</span><span class="nx">people</span><span class="s2">"]} }"</span><span class="p">,</span>  <span class="na">apikey</span><span class="p">:</span><span class="s2">"myapikey"</span> <span class="p">}</span>
+<span class="nx">needle</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="s1">'get'</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span>
+<span class="p">});</span>
+</code></pre>
+
+<pre><code class="highlight shell">curl -X POST -F <span class="s2">"query_profile=sports_profile"</span>-F <span class="s2">"json= { "</span>querymanipulationindex<span class="s2">":"</span>sports<span class="s2">", "</span>promotions<span class="s2">": { "</span>enabled<span class="s2">": true , "</span>every_page<span class="s2">": true , "</span>identified<span class="s2">": true , "</span>categories<span class="s2">":["</span>people<span class="s2">"]} }"</span> -F <span class="s2">"apikey=myapikey"</span>  https://api.idolondemand.com/1/api/sync/createtextindex/v1
+</code></pre>
+
+<p>## Applying our query profile to a search</p>
+
+<p>Whenever we do a search now for the word &ldquo;football&rdquo; and specify our sports_profile query profile, our promoted result will appear.</p>
+
+<p><pre><code class="highlight python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">url</span><span class="o">=</span><span class="s">&quot;http://api.idolondemand.com/1/api/sync/querytextindex/v1&quot;</span>
+<span class="c">#GET</span>
+<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">&quot;text&quot;</span><span class="p">:</span> <span class="s">&quot;football&quot;</span><span class="p">,</span> <span class="s">&quot;indexes&quot;</span><span class="p">:</span> <span class="s">&quot;wiki_eng&quot;</span><span class="p">,</span> <span class="s">&quot;query_profile&quot;</span><span class="p">:</span> <span class="s">&quot;sports_profile&quot;</span><span class="p">,</span>  <span class="s">&quot;apikey&quot;</span><span class="p">:</span><span class="s">&quot;myapikey&quot;</span> <span class="p">}</span>
+<span class="n">bodyobj</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">params</span><span class="o">=</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre>
+<pre><code class="highlight ruby"><span class="nb">require</span> <span class="s1">&#39;httpclient&#39;</span>
+<span class="nb">require</span> <span class="s1">&#39;json&#39;</span>
+<span class="n">clnt</span> <span class="o">=</span> <span class="no">HTTPClient</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">url</span><span class="o">=</span><span class="s2">&quot;http://api.idolondemand.com/1/api/sync/querytextindex/v1&quot;</span>
+<span class="c1">#GET</span>
+<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="ss">text: </span><span class="s2">&quot;football&quot;</span><span class="p">,</span> <span class="ss">indexes: </span><span class="s2">&quot;wiki_eng&quot;</span><span class="p">,</span> <span class="ss">query_profile: </span><span class="s2">&quot;sports_profile&quot;</span><span class="p">,</span>  <span class="n">apikey</span><span class="p">:</span><span class="s2">&quot;myapikey&quot;</span> <span class="p">}</span>
+<span class="n">resp</span><span class="o">=</span><span class="n">clnt</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">data</span><span class="p">)</span>
+<span class="n">body</span><span class="o">=</span><span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre>
+<pre><code class="highlight javascript"><span class="kd">var</span> <span class="nx">needle</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;needle&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">url</span><span class="o">=</span><span class="s2">&quot;http://api.idolondemand.com/1/api/sync/querytextindex/v1&quot;</span>
+<span class="c1">//GET</span>
+<span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;football&quot;</span><span class="p">,</span> <span class="s2">&quot;indexes&quot;</span><span class="p">:</span> <span class="s2">&quot;wiki_eng&quot;</span><span class="p">,</span> <span class="s2">&quot;query_profile&quot;</span><span class="p">:</span> <span class="s2">&quot;sports_profile&quot;</span><span class="p">,</span>  <span class="na">apikey</span><span class="p">:</span><span class="s2">&quot;myapikey&quot;</span> <span class="p">}</span>
+<span class="nx">needle</span><span class="p">.</span><span class="nx">request</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">resp</span><span class="p">,</span> <span class="nx">body</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span>
+<span class="p">});</span>
+</code></pre>
+<pre><code class="highlight shell">curl -X POST -F <span class="s2">&quot;text=football&quot;</span>-F <span class="s2">&quot;indexes=wiki_eng&quot;</span>-F <span class="s2">&quot;query_profile=sports_profile&quot;</span> -F <span class="s2">&quot;apikey=myapikey&quot;</span>  https://api.idolondemand.com/1/api/sync/createtextindex/v1
+</code></pre></p>
+
+<p>&ldquo;`json
+    {
+  &quot;documents&rdquo;: [
+    {
+      &ldquo;reference&rdquo;: &ldquo;http://en.wikipedia.org/wiki/David Beckham&rdquo;,
+      &ldquo;index&rdquo;: &ldquo;sports&rdquo;,
+      &ldquo;title&rdquo;: &ldquo;My Beck Promotion&rdquo;,
+      &ldquo;promotion&rdquo;: true,
+      &ldquo;content&rdquo;: &ldquo;This is my Beck promotion&rdquo;
+    },
+    {
+      &ldquo;reference&rdquo;: &ldquo;http://en.wikipedia.org/wiki/Association football&rdquo;,
+      &ldquo;weight&rdquo;: 90.99,</p>
+
+<p>&ldquo;`</p>
 
       </div>
       <div class="dark-box">
