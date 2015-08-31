@@ -1,0 +1,286 @@
+# API Reference
+
+% for api in data:
+
+${"##"} ${api.api_documentation.name}
+
+%if description in api.api_documentation:
+${api.api_documentation.description}
+%endif
+
+
+<%def name="todict(params,input,type='python')">\
+<%
+wrpa=""
+wrpb=""
+prefix=""
+suffix=""
+if type=="python":
+  joinstr=", "
+  wrpa='"'
+  wrpb='"'
+  prefix="{"
+  suffix="}"
+  linkstr=":"
+elif type=="url":
+  joinstr="&"
+  linkstr="="
+elif type=="curlpost":
+  joinstr=" -F "
+  linkstr="="
+  prefix=" -F "
+elif type=="ruby":
+  joinstr=", "
+  wrpb='"'
+  prefix="{"
+  suffix="}"
+  linkstr=":"
+from bunch import Bunch
+apikeybunch= Bunch()
+apikeybunch.name="apikey"
+apikeybunch.required=True
+params=params+[apikeybunch]
+params= filter (lambda x: x.required, params)
+params=map(lambda x: wrpa+x.name+wrpa+linkstr+wrpb+x.name+wrpb,params)
+paramstr= prefix + joinstr.join(params) +suffix
+%>\
+data=${paramstr}
+</%def>
+<%def name="javascript(api)">
+```javascript
+var needle = require('needle');
+
+<%
+   input = ""
+   if "text" in api.inputs:
+      input="text"
+   elif "url" in api.inputs:
+      input="url"
+
+%>
+<%self:todict params="${api.params}" input="${input}">
+</%self:todict>
+
+asyncurl="http://api.idolondemand.com/1/api/async/${api.id}/v1"
+%if "disableSync" not in api or not api.disableSync:
+url="http://api.idolondemand.com/1/api/sync/${api.id}/v1"
+//GET
+%if input:
+data.${input}="my${input}"
+%endif
+needle.request('get', url, data, function(err, resp, body) {
+  console.log(body)
+});
+//POST
+%if input:
+data.${input}="my${input}"
+%endif
+needle.post(url, data, function(err, resp, body) {
+  console.log(body)
+});
+%endif
+
+%if "file" in api.inputs:
+//File POST
+data.file={ file: 'myscan.pdf', content_type: 'multipart/form-data' }
+needle.post(url, data, {"multipart":true}, function(err, resp, body) {
+  console.log(body)
+  // needle will read the file and include it in the form-data as binary
+});
+%endif
+```
+</%def>
+
+
+<%def name="curl(api)">
+<%
+params= filter (lambda x: x.required, api.params)
+params=map(lambda x: x.name+"=my"+x.name,params)
+input = ""
+if "text" in api.inputs:
+   input="text"
+elif "url" in api.inputs:
+   input="url"
+
+params+= ["apikey=myapikey"]
+if "file" in api.inputs:
+  fileparams= params+["file=@/path/to/file"]
+if input:
+  params=params+[input+"=my"+input]
+%>
+```shell
+#GET
+curl "http://api.idolondemand.com/1/api/sync/${api.id}/v1?"?${'&'.join(params)}
+
+#POST
+curl -X POST -F ${' -F '.join(params)} "http://api.idolondemand.com/1/api/sync/${api.id}/v1"
+
+%if "file" in api.inputs:
+#File POST
+curl -X POST -F ${' -F '.join(fileparams)} "http://api.idolondemand.com/1/api/sync/${api.id}/v1"
+%endif
+```
+</%def>
+
+
+<%def name="python(api)">
+```python
+import requests
+<%
+   input = ""
+   if "text" in api.inputs:
+      input="text"
+   elif "url" in api.inputs:
+      input="url"
+%>
+<%self:todict params="${api.params}" input="${input}" type="python">
+</%self:todict>\
+asyncurl="http://api.idolondemand.com/1/api/async/${api.id}/v1"
+%if "disableSync" not in api or not api.disableSync:
+
+url="http://api.idolondemand.com/1/api/sync/${api.id}/v1"
+#GET
+%if input:
+data["${input}"]="my${input}"
+%endif
+resp=requests.get(url,params=data)
+#POST
+%if input:
+data["${input}"]="my${input}"
+%endif
+resp=requests.post(url,data=data)
+
+%endif
+%if "file" in api.inputs:
+#File POST
+files={file:open("myfile.extension","rb")}
+resp=requests.post(url,files=files,data=data)
+%endif
+
+#Async
+%if input:
+data["${input}"]="my${input}"
+%endif
+resp=requests.get(asyncurl,params=data)
+jobid=resp.json()["jobId"]
+resp=requests.get("http://api.idolondemand.com/1/job/status/"+resp.json()[jobid],params={ "apikey":apikey})
+```
+</%def>
+
+
+<%def name="ruby(api)">
+```ruby
+require 'httpclient'
+require 'json'
+<%
+   input = ""
+   if "text" in api.inputs:
+      input="text"
+   elif "url" in api.inputs:
+      input="url"
+
+%>
+<%self:todict params="${api.params}" input="${input}" type="ruby">
+</%self:todict>
+clnt = HTTPClient.new
+asyncurl="http://api.idolondemand.com/1/api/async/${api.id}/v1"
+%if "disableSync" not in api or not api.disableSync:
+url="http://api.idolondemand.com/1/api/sync/${api.id}/v1"
+#GET
+%if input:
+data["${input}"]="my${input}"
+%endif
+resp=clnt.get(url, data)
+body=JSON.parse(resp.body)
+#POST
+%if input:
+data["${input}"]="my${input}"
+%endif
+resp=clnt.post(url, data)
+body=JSON.parse(resp.body)
+%endif
+%if "file" in api.inputs:
+#File POST
+data["file"]=open("myfile.extension")
+resp=clnt.post(url, data)
+body=JSON.parse(resp.body)
+%endif
+#Async
+%if input:
+data["${input}"]="my${input}"
+%endif
+resp=clnt.get(url, data)
+jobid=JSON.parse(resp.body)[:jobId]
+jobresp=clnt.get("http://api.idolondemand.com/1/job/status/"+jobid,{apikey:apikey})
+```
+</%def>
+
+<%self:python api="${api}">
+
+</%self:python>
+
+
+<%self:ruby api="${api}">
+
+</%self:ruby>
+
+<%self:javascript api="${api}">
+
+</%self:javascript>
+
+<%self:curl api="${api}">
+
+</%self:curl>
+
+
+${"###"} HTTP Request
+
+
+%if "disableSync" in api and api.disableSync:
+<aside class="warning">
+This API does not allow Synchronous calls, only Asynchronous calls are allowed
+</aside>
+`GET/POST http://api.idolondemand.com/1/api/async/${api.id}/v1`
+%else:
+`GET/POST http://api.idolondemand.com/1/api/{sync|async}/${api.id}/v1`
+%endif
+
+Inputs and extra parameters should be query parameters when sending a GET request, but posted in the body when doing a POST request
+Multipart-form/data POSTs are also supported and required when sending file parameters.
+
+% if api.inputs:
+${'###'} Inputs
+
+Inputs | Description
+------- | -------
+% for input in api.inputs:
+${input} |
+%endfor
+
+%endif
+
+${'###'} Extra Parameters
+
+Parameter | Type | Description
+--------- | ----------- | -----------
+% for param in api.params:
+% if param.required:
+**${param.name}** | ${param.type} | ${param.description}
+% else:
+${param.name} | ${param.type} | ${param.description}
+% endif
+%endfor
+
+%if api.enums:
+${'###'} Enums
+
+%endif
+%for enum in api.enums:
+${enum.name} | Description
+--------- | -----------
+%for val in enum.vals:
+${val.name} | ${val.label}
+%endfor
+%endfor
+
+% endfor

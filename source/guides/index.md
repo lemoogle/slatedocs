@@ -16,6 +16,7 @@ includes:
   - guides/prediction
   - guides/search
   - guides/webcloud
+  - guides/query_profile
 
 
 search: true

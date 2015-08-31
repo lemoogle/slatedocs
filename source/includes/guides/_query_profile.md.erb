@@ -1,0 +1,86 @@
+# Promoting search results
+
+When building your search functionality, sometimes you want to ensure certain results are always returned when searching for some terms.
+This is something we call "Promotions".
+
+## Create a Query Profile Index
+<%= partial(:'codesnippets/codetemplates',
+:locals => {:api => "createtextindex", :sync=>"sync", :method=>"GET",
+  :params=>{"index"=>"sports", "flavor"=>"querymanipulation"}} ) %>
+
+The first thing you'll want to do is to create a Text Index with the flavor querymanipulation. That text index is where we'll be able to configure which documents should show up when.
+Here we'll want to manipulate searches about sports.
+
+
+## Add promotion documents to the index
+
+Now that we have our querymanipulation index we can create documents that will be returned when we search for something.
+
+
+```json
+{
+            "document":[{
+                           "reference": "beckham",
+                           "category":"people",
+                           "type":"Promotion",
+                           "content":"football",
+                           "STATIC_REFERENCE": "http://en.wikipedia.org/wiki/David Beckham",
+                           "STATIC_TITLE": "My Beck Promotion",
+                           "STATIC_CONTENT":"This is my Beck promotion"
+            }]
+
+}
+```
+
+<%= partial(:'codesnippets/codetemplates',
+:locals => {:api => "addtotextindex", :sync=>"sync", :method=>"POST",
+  :params=>{"json"=>' { "document":[{ "reference": "beckham", "category":"people", "type":"Promotion", "content":"football", "STATIC_REFERENCE": "http://en.wikipedia.org/wiki/David Beckham", "STATIC_TITLE": "My Beck Promotion", "STATIC_CONTENT":"This is my Beck promotion" }] } ', "index"=>"sports"}} ) %>
+
+Adding documents to this index is the same as adding documents to any index, it will expect json documents with a reference field, title and content fields.
+The difference here is that the content field should contain the terms that when searched for will always return the document we want to promote. THat promoted document is defined using fields named STATIC_FIELDNAME, such as STATIC_REFERENCE or STATIC_TITLE.
+
+
+## Creating our query profile
+
+Now that we've created our querymanipulation index, we can create a Query Profile associated to it, we will then call that Query Profile when doing our Query Text Index query.
+
+```json
+
+   {
+      "querymanipulationindex":"sports",
+      "promotions": {
+               "enabled": true ,
+               "every_page": true ,
+               "identified": true ,
+               "categories":["people"]}
+   }
+```
+
+<%= partial(:'codesnippets/codetemplates',
+:locals => {:api => "createqueryprofile", :sync=>"sync", :method=>"GET",
+  :params=>{"query_profile"=>"sports_profile", "json"=>' { "querymanipulationindex":"sports", "promotions": { "enabled": true , "every_page": true , "identified": true , "categories":["people"]} }'}} ) %>
+
+
+  ## Applying our query profile to a search
+
+  Whenever we do a search now for the word "football" and specify our sports_profile query profile, our promoted result will appear.
+
+  <%= partial(:'codesnippets/codetemplates',
+  :locals => {:api => "querytextindex", :sync=>"sync", :method=>"GET",
+    :params=>{"text"=>"football","indexes"=>"wiki_eng", "query_profile"=>"sports_profile"}} ) %>
+
+    ```json
+    {
+  "documents": [
+    {
+      "reference": "http://en.wikipedia.org/wiki/David Beckham",
+      "index": "sports",
+      "title": "My Beck Promotion",
+      "promotion": true,
+      "content": "This is my Beck promotion"
+    },
+    {
+      "reference": "http://en.wikipedia.org/wiki/Association football",
+      "weight": 90.99,
+
+    ```

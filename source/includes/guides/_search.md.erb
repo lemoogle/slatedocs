@@ -182,7 +182,7 @@ After you populate your index, you can perform searches to get detailed informat
 > Querying an index
 
 <%= partial(:'codesnippets/codetemplates',
-:locals => {:api => "addtotextindex", :sync=>"sync", :method=>"GET",
+:locals => {:api => "querytextindex", :sync=>"sync", :method=>"GET",
   :params=>{"text"=>"mysearch","indexes"=>"myindex"}} ) %>
 
   <%#=
