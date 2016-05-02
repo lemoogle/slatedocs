@@ -19,6 +19,8 @@ for api in apilist:
         param = val
         param["name"]=name
         param["required"]=name in api["parameters"]["schema"].get("required",[])
+        if "description" not in param:
+            param["description"]=""
         if "items" in val and 'enum_documentation' in val["items"]:
             #print val["items"]
             val["enum_documentation"]=val["items"]["enum_documentation"]
